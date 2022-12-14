@@ -10,7 +10,10 @@
     id="NavigationBar"
     class="onlyOnMobile"
   >
-        <cyan-navigation-button noun="page" active />
+    <cyan-navigation-button
+      noun="page"
+      active
+    />
   </nav>
 </template>
 

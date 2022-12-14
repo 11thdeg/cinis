@@ -5,7 +5,10 @@ import { version } from '../../../package.json'
 <template>
   <article class="small Column">
     <cyan-card>
-        <section class="flex" style="justify-content: center; margin-bottom: var(--cn-page-grid)">
+      <section
+        class="flex"
+        style="justify-content: center; margin-bottom: var(--cn-page-grid)"
+      >
         <cyan-icon
           noun="fox"
           large
