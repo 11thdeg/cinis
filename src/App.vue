@@ -5,6 +5,7 @@ import NavigationRail from './components/NavigationRail/NavigationRail.vue';
 </script>
 
 <template>
+  <router-view />
   <NavigationRail />
   <NavigationBar />
 </template>

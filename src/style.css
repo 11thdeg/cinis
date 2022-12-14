@@ -1,0 +1,20 @@
+.dataTable {
+  width: 100%;
+  overflow: hidden;
+  display: grid;
+  grid-template-columns: 2fr 3fr;
+  gap: 0;
+}
+.dataTable .tableHead {
+  font-weight: 700;
+}
+
+.dataTable p {
+  margin: 0;
+  padding: 8px;
+}
+.dataTable img {
+  max-width: calc( 100% - 8px );
+  margin: 0;
+  padding: 8px;
+}
