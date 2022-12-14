@@ -1,3 +1,3 @@
 export const routes = [
-  { component: () => import('./IndexView.vue') }
+  { path: '/', component: () => import('./IndexView.vue') }
 ]
