@@ -36,6 +36,16 @@ const gnomeVariantsOptions = [
   { value: 'forest', label: 'Salomaahinen' },
   { value: 'tinkerer', label: 'Nikkarimaahinen' }
 ]
+const halflingVariantsOptions = [
+  { value: '', label: '- Ei varianttia -'},
+  { value: 'lightfoot', label: 'Nopsajalka' },
+  { value: 'stout', label: 'Sisupussi' }
+]
+const tieflingVariantsOptions = [
+  { value: '', label: '- Ei varianttia' },
+  { value: 'demon', label: 'Demonien perillinen' },
+  { value: 'devil', label: 'Hornan perillinen' }
+]
 
 const variantOptions = computed(() => {
   switch (primarySpecies.value) {
@@ -45,6 +55,10 @@ const variantOptions = computed(() => {
     return dwarfVariantsOptions
   case 'gnome':
     return gnomeVariantsOptions
+  case 'halfling':
+    return halflingVariantsOptions
+  case 'tiefling':
+    return tieflingVariantsOptions
   default:
     return []
   }
@@ -61,7 +75,9 @@ const variantSpecies = computed({
 const hasSubspecies = computed(() =>
   primarySpecies.value === 'elf' ||
   primarySpecies.value === 'dwarf' ||
-  primarySpecies.value === 'gnome')
+  primarySpecies.value === 'gnome' ||
+  primarySpecies.value === 'halfling' ||
+  primarySpecies.value === 'tiefling')
 
 function speciesChange(e: Event) {
   const target = e.target as CyanSelect
