@@ -94,7 +94,9 @@ function variantSpeciesChange(e: Event) {
 
 <template>
   <section class="fieldset">
-    <h4 class="downscaled underscore">Laji</h4>
+    <h4 class="downscaled underscore">
+      Laji
+    </h4>
     <cyan-select
       :value="primarySpecies"
       :options="speciesOptions"

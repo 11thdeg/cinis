@@ -6,7 +6,7 @@ import ProfessionSelect from '../components/ProfessionSelect/ProfessionSelect.vu
 import SpeciesSelect from '../components/SpeciesSelect/SpeciesSelect.vue'
 import { useCharacter } from '../composables/useCharacter'
 
-const { species } = useCharacter()
+const { species, profession } = useCharacter()
 
 </script>
 
@@ -15,7 +15,7 @@ const { species } = useCharacter()
     <article class="Column">
       <IntroSection />
       <SpeciesSelect v-model="species" />
-      <ProfessionSelect />
+      <ProfessionSelect v-model="profession" />
     </article>
     <DebugColumn />
     <AppInfoColumn />
