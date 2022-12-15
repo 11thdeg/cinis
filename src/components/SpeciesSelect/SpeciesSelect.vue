@@ -9,6 +9,8 @@ const emit = defineEmits<{
   (e: 'update:modelValue', value: string): void
 }>()
 
+const noVariantLabel = '- Ei variaatiota -'
+
 const speciesOptions = [
   { value: '-', label: '- Valitse -'},
   { value: 'elf', label: 'Haltia' },
@@ -21,28 +23,28 @@ const speciesOptions = [
   { value: 'orc', label: 'Örkki'}
 ]
 const elfVariantsOptios = [
-  { value: '', label: '- Ei varianttia -'},
+  { value: '', label: noVariantLabel},
   { value: 'dark', label: 'Alishaltia' },
   { value: 'high', label: 'Jalohaltia'},
   { value: 'wood', label: 'Metsähaltia' }
 ]
 const dwarfVariantsOptions = [
-  { value: '', label: '- Ei varianttia -'},
+  { value: '', label: noVariantLabel},
   { value: 'stone', label: 'Kivikääpiö' },
   { value: 'hill', label: 'Mäkikääpiö' }
 ]
 const gnomeVariantsOptions = [
-  { value: '', label: '- Ei varianttia -'},
+  { value: '', label: noVariantLabel},
   { value: 'forest', label: 'Salomaahinen' },
   { value: 'tinkerer', label: 'Nikkarimaahinen' }
 ]
 const halflingVariantsOptions = [
-  { value: '', label: '- Ei varianttia -'},
+  { value: '', label: noVariantLabel},
   { value: 'lightfoot', label: 'Nopsajalka' },
   { value: 'stout', label: 'Sisupussi' }
 ]
 const tieflingVariantsOptions = [
-  { value: '', label: '- Ei varianttia' },
+  { value: '', label: noVariantLabel },
   { value: 'demon', label: 'Demonien perillinen' },
   { value: 'devil', label: 'Hornan perillinen' }
 ]
@@ -107,7 +109,7 @@ function variantSpeciesChange(e: Event) {
       v-if="hasSubspecies"
       :value="variantSpecies"
       :options="variantOptions"
-      label="Variantti"
+      label="Variaatio"
       @change="variantSpeciesChange"
     />
   </section>
