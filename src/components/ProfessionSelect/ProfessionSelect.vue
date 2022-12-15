@@ -40,6 +40,7 @@ function handleProfessionChange(e: Event) {
       Ammatti
     </h4>
     <cyan-select
+      label="Tausta"
       :value="modelValue"
       :options="professionOptions"
       @change="handleProfessionChange"
