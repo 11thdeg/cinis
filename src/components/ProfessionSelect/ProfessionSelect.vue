@@ -37,9 +37,10 @@ function handleProfessionChange(e: Event) {
     style="margin-top: var(--cn-page-grid)"
   >
     <h4 class="downscaled underscore">
-      Ammatti
+      Tausta
     </h4>
     <cyan-select
+      label="Tausta"
       :value="modelValue"
       :options="professionOptions"
       @change="handleProfessionChange"
