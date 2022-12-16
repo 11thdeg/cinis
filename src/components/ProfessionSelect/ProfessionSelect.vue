@@ -1,5 +1,6 @@
 <script lang="ts" setup>
 import { CyanSelect } from '@11thdeg/cyan'
+import { useCharacter } from '../../composables/useCharacter'
 
 const props = defineProps<{
   modelValue: string
@@ -7,6 +8,8 @@ const props = defineProps<{
 const emit = defineEmits<{
   (e: 'update:modelValue', value: string): void
 }>()
+
+const { professions } = useCharacter()
 
 const professionOptions = [
   { value: '-', label: '- Valitse -'},
@@ -45,5 +48,19 @@ function handleProfessionChange(e: Event) {
       :options="professionOptions"
       @change="handleProfessionChange"
     />
+    <p v-if="professions.length > 0">
+      <strong>Taidot: </strong>
+      <span
+        v-for="p in professions"
+        :key="p"
+        class="addCommaBetween"
+      >{{ p }}</span>
+    </p>
   </section>
 </template>
+
+<style scoped>
+.addCommaBetween + .addCommaBetween:before {
+  content: ', ';
+}
+</style>
