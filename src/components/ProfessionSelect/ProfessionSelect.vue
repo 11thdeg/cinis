@@ -15,7 +15,7 @@ const professionOptions = [
   { value: '-', label: '- Valitse -'},
   { value: 'scavenger', label: 'Aarteenetsijä' },
   { value: 'acolyte', label: 'Akolyytti' },
-  { value: 'alchemis', label: 'Alkemisti' },
+  { value: 'alchemist', label: 'Alkemisti' },
   { value: 'aristocrat', label: 'Aristokraatti' },
   { value: 'soothsayer', label: 'Ennustaja' },
   { value: 'artisan', label: 'Käsityöläinen'},

@@ -1,6 +1,7 @@
 export type Background = {
   name: string
   proficiencies: Record<string, string>
+  toolProficiencies?: Record<string, string>
   options: string[]
   special: string
 }
@@ -27,6 +28,21 @@ export const backgrounds:Record<string, Background> = {
       'language'
     ],
     special: 'Erikoisuus: Turvapaikka'
+  },
+  alchemist: {
+    name: 'Alkemisti',
+    proficiencies: {
+      'insight': 'Oivallus',
+      'medicine': 'Lääketiede'
+    },
+    toolProficiencies: {
+      'alchemist': 'Alkemistin työkalut'
+    },
+    options: [
+      'language',
+      'alchemist-specialty'
+    ],
+    special: 'Erikoisuus: Alkemistin erikoistuminen'
   },
   aristocrat: {
     name: 'Aristokraatti',
