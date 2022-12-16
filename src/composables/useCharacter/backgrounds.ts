@@ -2,7 +2,7 @@ export type Background = {
   name: string
   proficiencies: Record<string, string>
   toolProficiencies?: Record<string, string>
-  options: string[]
+  options?: string[]
   special: string
 }
 
@@ -79,5 +79,67 @@ export const backgrounds:Record<string, Background> = {
       'language',
     ],
     special: 'Erikoisuus: Killan jäsenyys'
+  },
+  vagabond: {
+    name: 'Kulkuri',
+    proficiencies: {
+      'survival': 'Selviytyminen',
+      'insight': 'Oivallus'
+    },
+    options: [
+      'language'
+    ],
+    special: 'Erikoisuus: Kovien kolhujen koulu'
+  },
+  peasant: {
+    name: 'Maanviljelijä',
+    proficiencies: {
+      'animal handling': 'Eläinten käsittely',
+      'survival': 'Selviytyminen',
+    },
+    toolProficiencies: {
+      'carriage': 'Kuljetusvälineet',
+    },
+    special: 'Erikoisuus: Sisu'
+  },
+  sailor: {
+    name: 'Merenkulkija',
+    proficiencies: {
+      'athletics': 'Urheilu',
+      'perception': 'Tarkkaavaisuus'
+    },
+    toolProficiencies: {
+      'navigator': 'Navigointityökalut'
+    },
+    options: [
+      'language',
+      'language'
+    ],
+    special: 'Erikoisuus: Ystävä joka satamassa'
+  },
+  hermit: {
+    name: 'Metsäläinen',
+    proficiencies: {
+      'animal handling': 'Eläinten käsittely'
+    },
+    options: [
+      'skill:survival/persuasion',
+    ],
+    toolProficiencies: {
+      herbs: 'Rohdospussi',
+      woodcarving: 'Puunveistäjän työkalut'
+    },
+    special: 'Erikoisuus: Luonnontuntemus'
+  },
+  tinkerer: {
+    name: 'Nikkari',
+    proficiencies: {},
+    toolProficiencies: {
+      'thieves': 'Varkaan työkalut'
+    },
+    options: [
+      'language',
+    ],
+    special: 'Erikoisuus: Penkoja'
   }
 }
