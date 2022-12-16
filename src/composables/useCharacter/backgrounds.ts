@@ -42,17 +42,42 @@ export const backgrounds:Record<string, Background> = {
       'language',
       'alchemist-specialty'
     ],
-    special: 'Erikoisuus: Alkemistin erikoistuminen'
+    special: 'Erikoisuus: Kemikaalialtistuminen'
   },
   aristocrat: {
     name: 'Aristokraatti',
     proficiencies: {
       'persuasion': 'Suostuttelu',
-      'deception': 'Huijaus'
+      'deception': 'Huijaaminen'
     },
     options: [
       'language'
     ],
     special: 'Erikoisuus: Tajuatko kenelle oikein puhut?'
+  },
+  soothsayer: {
+    name: 'Ennustaja',
+    proficiencies: {
+      'insight': 'Oivallus',
+      'deception': 'Huijaaminen'
+    },
+    options: [
+      'language'
+    ],
+    special: 'Erikoisuus: Ennustaminen'
+  },
+  artisan: {
+    name: 'Käsityöläinen',
+    proficiencies: {
+      'insight': 'Oivallus',
+      'persuasion': 'Suostuttelu'
+    },
+    toolProficiencies: {
+      'artisan': 'Käsityöläisen työkalut'
+    },
+    options: [
+      'language',
+    ],
+    special: 'Erikoisuus: Killan jäsenyys'
   }
 }

@@ -19,6 +19,7 @@ const professionOptions = [
   { value: 'aristocrat', label: 'Aristokraatti' },
   { value: 'soothsayer', label: 'Ennustaja' },
   { value: 'artisan', label: 'Käsityöläinen'},
+  { value: 'vagabond', label: 'Kulkuri'},
   { value: 'peasant', label: 'Maanviljelijä'},
   { value: 'hermit', label: 'Metsäläinen'},
   { value: 'tinkerer', label: 'Nikkari'},
