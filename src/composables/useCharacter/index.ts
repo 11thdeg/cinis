@@ -1,5 +1,6 @@
 import { computed, Ref, ref } from 'vue'
 import { backgrounds } from './backgrounds'
+import { characterFeatures } from './features'
 
 const species = ref('')
 const _background = ref('')
@@ -19,6 +20,30 @@ function reset () {
   species.value = ''
   background.value = ''
   professions.value = []
+}
+
+const features:Ref<Set<string>> = ref(new Set())
+
+/**
+ * Adds a feature to the character, and removes any conflicting features and their effects
+ * 
+ * @param f a feature name, from the characterFeatures object
+ */
+function addFeature (f: string) {
+  features.value.add(f)
+  const feat = characterFeatures[f]
+  if (feat) {
+    if (feat.type === 'species') {
+      species.value = f
+    }
+  }
+  else {
+    console.error('Unknown feature', f)
+  }
+}
+function removeFeature (f: string) {
+  features.value.delete(f)
+  // TODO
 }
 
 const background = computed({
@@ -50,6 +75,8 @@ export function useCharacter () {
     removeProfession,
     species,
     background,
-    reset
+    reset,
+    addFeature,
+    removeFeature,
   }
 }
