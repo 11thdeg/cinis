@@ -1,7 +1,7 @@
 <script lang="ts" setup>
 import { useCharacter } from '../../composables/useCharacter'
 
-const { species, background, professions } = useCharacter()
+const { species, background, professions, languages, description } = useCharacter()
 
 </script>
 <template>
@@ -35,6 +35,18 @@ const { species, background, professions } = useCharacter()
         </p>
         <p class="TypeBody2">
           {{ professions }}
+        </p>
+        <p class="TypeBody2">
+          <strong>Kielet:</strong>
+        </p>
+        <p class="TypeBody2">
+          {{ languages }}
+        </p>
+        <p class="TypeBody2">
+          <strong>Kuvaus:</strong>
+        </p>
+        <p class="TypeBody2">
+          {{ description }}
         </p>
       </section>
     </cyan-card>

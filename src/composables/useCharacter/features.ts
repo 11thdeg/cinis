@@ -1,5 +1,5 @@
 export type CharacterFeatureEffect = {
-  target: 'skill' | 'tool' | 'language' | 'special' | 'description'
+  stat: 'description' | 'language'
   value: string
 }
 
@@ -15,28 +15,28 @@ export const characterFeatures:Record<string, CharacterFeature> = {
     type: 'species',
     effects: {
       size: {
-        target: 'description',
+        stat: 'description',
         value: 'Keskikokoinen'
       },
       speed: {
-        target: 'description',
+        stat: 'description',
         value: 'Liikkuminen 9m'
       },
       darkvision: {
-        target: 'description',
+        stat: 'description',
         value: 'Pimeänäkö 18m'
       },
       feyAncestry: {
-        target: 'description',
+        stat: 'description',
         value: 'Viholliset eivät saa etua hyökkäyksissäsi'
       },
       trance: {
-        target: 'description',
+        stat: 'description',
         value: 'Voit nukkua 4h päivässä'
       },
       languages: {
-        target: 'language',
-        value: 'Kääpiökieli'
+        stat: 'language',
+        value: 'Haltiakieli'
       }
     }
   }

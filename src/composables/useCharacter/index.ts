@@ -68,6 +68,38 @@ const background = computed({
   } 
 })
 
+const languages = computed(() => {
+  const langs = new Set<string>()
+  for (const feat of features.value) {
+    const feature = characterFeatures[feat]
+    if (feature) {
+      for (const key in feature.effects) {
+        const effect = feature.effects[key]
+        if (effect.stat === 'language') {
+          langs.add(effect.value)
+        }
+      }
+    }
+  }
+  return [...langs]
+})
+
+const description = computed(() => {
+  const desc = new Set<string>()
+  for (const feat of features.value) {
+    const feature = characterFeatures[feat]
+    if (feature) {
+      for (const key in feature.effects) {
+        const effect = feature.effects[key]
+        if (effect.stat === 'description') {
+          desc.add(effect.value)
+        }
+      }
+    }
+  }
+  return [...desc]
+})
+
 export function useCharacter () {
   return {
     professions: computed(() => [...(new Set(professions.value))].sort()),
@@ -78,5 +110,7 @@ export function useCharacter () {
     reset,
     addFeature,
     removeFeature,
+    languages,
+    description
   }
 }
