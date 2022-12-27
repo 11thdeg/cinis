@@ -1,6 +1,7 @@
 <script lang="ts" setup>
 import { CyanSelect } from '@11thdeg/cyan'
 import { computed } from 'vue'
+import { useCharacter } from '../../composables/useCharacter'
 
 const props = defineProps<{
   modelValue: string
@@ -8,6 +9,8 @@ const props = defineProps<{
 const emit = defineEmits<{
   (e: 'update:modelValue', value: string): void
 }>()
+
+const { addFeature, removeFeature } = useCharacter()
 
 const noVariantLabel = '- Ei variaatiota -'
 
@@ -84,12 +87,18 @@ const hasSubspecies = computed(() =>
 function speciesChange(e: Event) {
   const target = e.target as CyanSelect
   const value = target.value
+  removeFeature(primarySpecies.value)
+  removeFeature(variantSpecies.value)
   primarySpecies.value = value
+  addFeature(value)
 }
 function variantSpeciesChange(e: Event) {
   const target = e.target as CyanSelect
   const value = target.value
+  removeFeature(primarySpecies.value)
+  removeFeature(variantSpecies.value)
   variantSpecies.value = value
+  addFeature(value)
 }
 
 </script>

@@ -1,5 +1,6 @@
 import { computed, Ref, ref } from 'vue'
 import { backgrounds } from './backgrounds'
+import { characterFeatures } from './features'
 
 const species = ref('')
 const _background = ref('')
@@ -19,6 +20,30 @@ function reset () {
   species.value = ''
   background.value = ''
   professions.value = []
+}
+
+const features:Ref<Set<string>> = ref(new Set())
+
+/**
+ * Adds a feature to the character, and removes any conflicting features and their effects
+ * 
+ * @param f a feature name, from the characterFeatures object
+ */
+function addFeature (f: string) {
+  features.value.add(f)
+  const feat = characterFeatures[f]
+  if (feat) {
+    if (feat.type === 'species') {
+      species.value = f
+    }
+  }
+  else {
+    console.error('Unknown feature', f)
+  }
+}
+function removeFeature (f: string) {
+  features.value.delete(f)
+  // TODO
 }
 
 const background = computed({
@@ -43,6 +68,38 @@ const background = computed({
   } 
 })
 
+const languages = computed(() => {
+  const langs = new Set<string>()
+  for (const feat of features.value) {
+    const feature = characterFeatures[feat]
+    if (feature) {
+      for (const key in feature.effects) {
+        const effect = feature.effects[key]
+        if (effect.stat === 'language') {
+          langs.add(effect.value)
+        }
+      }
+    }
+  }
+  return [...langs]
+})
+
+const description = computed(() => {
+  const desc = new Set<string>()
+  for (const feat of features.value) {
+    const feature = characterFeatures[feat]
+    if (feature) {
+      for (const key in feature.effects) {
+        const effect = feature.effects[key]
+        if (effect.stat === 'description') {
+          desc.add(effect.value)
+        }
+      }
+    }
+  }
+  return [...desc]
+})
+
 export function useCharacter () {
   return {
     professions: computed(() => [...(new Set(professions.value))].sort()),
@@ -50,6 +107,10 @@ export function useCharacter () {
     removeProfession,
     species,
     background,
-    reset
+    reset,
+    addFeature,
+    removeFeature,
+    languages,
+    description
   }
 }
