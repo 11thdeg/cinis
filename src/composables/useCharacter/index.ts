@@ -68,36 +68,29 @@ const background = computed({
   } 
 })
 
-const languages = computed(() => {
-  const langs = new Set<string>()
+function getFeatureSet( type: string ) {
+  const feats = new Set<string>()
   for (const feat of features.value) {
+    console.log('parsing:', feat, 'type:', type)
     const feature = characterFeatures[feat]
     if (feature) {
-      for (const key in feature.effects) {
-        const effect = feature.effects[key]
-        if (effect.stat === 'language') {
-          langs.add(effect.value)
+      console.log('feature:', feature)
+      for (const effect of feature.effects) {
+        if (effect[0] === type) {
+          feats.add(effect[1])
         }
       }
     }
   }
-  return [...langs]
+  return feats
+}
+
+const languages = computed(() => {
+  return [...getFeatureSet('language')]
 })
 
 const description = computed(() => {
-  const desc = new Set<string>()
-  for (const feat of features.value) {
-    const feature = characterFeatures[feat]
-    if (feature) {
-      for (const key in feature.effects) {
-        const effect = feature.effects[key]
-        if (effect.stat === 'description') {
-          desc.add(effect.value)
-        }
-      }
-    }
-  }
-  return [...desc]
+  return [...getFeatureSet('description')]
 })
 
 export function useCharacter () {

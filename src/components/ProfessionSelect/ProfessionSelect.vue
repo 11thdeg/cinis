@@ -9,7 +9,7 @@ const emit = defineEmits<{
   (e: 'update:modelValue', value: string): void
 }>()
 
-const { professions } = useCharacter()
+const { professions, addFeature, removeFeature } = useCharacter()
 
 const professionOptions = [
   { value: '-', label: '- Valitse -'},
@@ -31,6 +31,10 @@ const professionOptions = [
 
 function handleProfessionChange(e: Event) {
   const value = (e.target as CyanSelect).value
+
+  removeFeature(props.modelValue)
+  addFeature(value)
+
   if (!value || value === props.modelValue) return
   emit('update:modelValue', value)
 }
