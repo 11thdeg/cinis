@@ -93,6 +93,11 @@ const description = computed(() => {
   return [...getFeatureSet('description')]
 })
 
+const size = computed(() => {
+  return [...getFeatureSet('size')][0] || '-'
+})
+
+
 export function useCharacter () {
   return {
     professions: computed(() => [...(new Set(professions.value))].sort()),
@@ -104,6 +109,7 @@ export function useCharacter () {
     addFeature,
     removeFeature,
     languages,
-    description
+    description,
+    size
   }
 }

@@ -6,9 +6,6 @@ export type CharacterFeature = {
   effects: string[][] // [[stat, value], [stat, value], ... ]
 }
 
-const a = [ { a: 'a'}, {b: 'b'} ]
-console.log(a, typeof a)
-
 export const characterFeatures:Record<string, CharacterFeature> = {
   elf: {
     description: 'Haltia',
@@ -20,6 +17,13 @@ export const characterFeatures:Record<string, CharacterFeature> = {
       ['description', '*Keijujen perintö* Viholliset eivät saa etua hyökkäyksissäsi'],
       ['description', '*Kevytuninen* Voit nukkua 4h päivässä'],
       ['language', 'Haltiakieli']
+    ]
+  },
+  human: {
+    description: 'Ihminen',
+    type: 'species',
+    effects: [
+      ['size', 'Keskikokoinen'],
     ]
   },
   ...backgroundFeatures
