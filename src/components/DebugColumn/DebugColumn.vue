@@ -1,11 +1,11 @@
 <script lang="ts" setup>
 import { useCharacter } from '../../composables/useCharacter'
 
-const { species, background, professions, languages, description } = useCharacter()
+const { species, background, professions, languages, description, size, equipment } = useCharacter()
 
 </script>
 <template>
-  <article class="small Column">
+  <article class="Column">
     <cyan-card>
       <cyan-icon
         slot="avatar"
@@ -43,10 +43,22 @@ const { species, background, professions, languages, description } = useCharacte
           {{ languages }}
         </p>
         <p class="TypeBody2">
-          <strong>Kuvaus:</strong>
+          <strong><cyan-code>size</cyan-code></strong>
+        </p>
+        <p class="TypeBody2">
+          {{ size }}
+        </p>
+        <p class="TypeBody2">
+          <strong><cyan-code>description</cyan-code></strong>
         </p>
         <p class="TypeBody2">
           {{ description }}
+        </p>
+        <p class="TypeBody2">
+          <strong><cyan-code>equipment</cyan-code></strong>
+        </p>
+        <p class="TypeBody2">
+          {{ equipment }}
         </p>
       </section>
     </cyan-card>

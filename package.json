@@ -1,7 +1,7 @@
 {
   "name": "cinis",
   "private": false,
-  "version": "0.5.0",
+  "version": "0.6.0-alpha2",
   "type": "module",
   "scripts": {
     "dev": "vite",
@@ -10,7 +10,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "@11thdeg/cyan": "0.29.7",
+    "@11thdeg/cyan": "0.30.5",
     "vue": "^3.2.45",
     "vue-router": "4"
   },

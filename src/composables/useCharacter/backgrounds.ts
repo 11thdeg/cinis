@@ -1,3 +1,5 @@
+import { CharacterFeature } from './features'
+
 export type Background = {
   name: string
   proficiencies: Record<string, string>
@@ -141,5 +143,41 @@ export const backgrounds:Record<string, Background> = {
       'language',
     ],
     special: 'Erikoisuus: Penkoja'
+  }
+}
+
+export const backgroundFeatures:Record<string, CharacterFeature> = {
+  scavenger: {
+    description: 'Aarteenetsijä',
+    type: 'background',
+    effects: [
+      ['proficiency', 'perception'],
+      ['proficiency', 'athletics'],
+      ['language', 'any'],
+      ['equipment', 'Lapio'],
+      ['equipment', 'Sorkkarauta'],
+      ['equipment', '15 metriä hamppuköyttä'],
+      ['equipment', 'Matkavaatteet'],
+      ['equipment', 'Varkaan työkalut'],
+      ['equipment', 'Vyökukkaro, jossa on 10 kultarahaa'],
+      ['description', 'Erikoisuus: Tuttu juttu']
+    ]
+  },
+  acolyte: {
+    description: 'Akolyytti',
+    type: 'background',
+    effects: [
+      ['proficiency', 'insight'],
+      ['proficiency', 'religion'],
+      ['language', 'any'],
+      ['language', 'any'],
+      ['equipment', 'pyhä symboli (valmistumislahjasi pappina)'],
+      ['equipment', 'rukouskirja tai rukouspyörä'],
+      ['equipment', '5 tikkua suitsuketta'],
+      ['equipment', 'papin kaapu'],
+      ['equipment', 'tavalliset vaatteet'],
+      ['equipment', 'kukkaro, jossa on 15 kultarahaa'],
+      ['description', 'Erikoisuus: Turvapaikka']
+    ]
   }
 }

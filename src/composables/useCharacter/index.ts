@@ -30,11 +30,17 @@ const features:Ref<Set<string>> = ref(new Set())
  * @param f a feature name, from the characterFeatures object
  */
 function addFeature (f: string) {
-  features.value.add(f)
   const feat = characterFeatures[f]
   if (feat) {
     if (feat.type === 'species') {
+      features.value.delete(species.value)
+      features.value.add(f)
       species.value = f
+    }
+    else if (feat.type === 'background') {
+      features.value.delete(_background.value)
+      features.value.add(f)
+      _background.value = f
     }
   }
   else {
@@ -68,37 +74,39 @@ const background = computed({
   } 
 })
 
-const languages = computed(() => {
-  const langs = new Set<string>()
+function getFeatureSet( type: string ) {
+  const feats = new Set<string>()
   for (const feat of features.value) {
+    console.log('parsing:', feat, 'type:', type)
     const feature = characterFeatures[feat]
     if (feature) {
-      for (const key in feature.effects) {
-        const effect = feature.effects[key]
-        if (effect.stat === 'language') {
-          langs.add(effect.value)
+      console.log('feature:', feature)
+      for (const effect of feature.effects) {
+        if (effect[0] === type) {
+          feats.add(effect[1])
         }
       }
     }
   }
-  return [...langs]
+  return feats
+}
+
+const languages = computed(() => {
+  return [...getFeatureSet('language')]
 })
 
 const description = computed(() => {
-  const desc = new Set<string>()
-  for (const feat of features.value) {
-    const feature = characterFeatures[feat]
-    if (feature) {
-      for (const key in feature.effects) {
-        const effect = feature.effects[key]
-        if (effect.stat === 'description') {
-          desc.add(effect.value)
-        }
-      }
-    }
-  }
-  return [...desc]
+  return [...getFeatureSet('description')]
 })
+
+const size = computed(() => {
+  return [...getFeatureSet('size')][0] || '-'
+})
+
+const equipment = computed(() => {
+  return [...getFeatureSet('equipment')]
+})
+
 
 export function useCharacter () {
   return {
@@ -111,6 +119,8 @@ export function useCharacter () {
     addFeature,
     removeFeature,
     languages,
-    description
+    description,
+    size,
+    equipment
   }
 }
