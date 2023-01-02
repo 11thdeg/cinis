@@ -30,11 +30,17 @@ const features:Ref<Set<string>> = ref(new Set())
  * @param f a feature name, from the characterFeatures object
  */
 function addFeature (f: string) {
-  features.value.add(f)
   const feat = characterFeatures[f]
   if (feat) {
     if (feat.type === 'species') {
+      features.value.delete(species.value)
+      features.value.add(f)
       species.value = f
+    }
+    else if (feat.type === 'background') {
+      features.value.delete(_background.value)
+      features.value.add(f)
+      _background.value = f
     }
   }
   else {
@@ -97,6 +103,10 @@ const size = computed(() => {
   return [...getFeatureSet('size')][0] || '-'
 })
 
+const equipment = computed(() => {
+  return [...getFeatureSet('equipment')]
+})
+
 
 export function useCharacter () {
   return {
@@ -110,6 +120,7 @@ export function useCharacter () {
     removeFeature,
     languages,
     description,
-    size
+    size,
+    equipment
   }
 }

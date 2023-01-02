@@ -1,18 +1,27 @@
 <script lang="ts" setup>
 import { useCharacter } from '../../composables/useCharacter'
+import EquipmentBox from './EquipmentBox.vue'
 import StatBox from './StatBox.vue'
 
-const { size } = useCharacter()
+const { size, species } = useCharacter()
 </script>
 
 <template>
   <article class="large Column">
-    <h4>Proto-hahmari</h4>
-    <cyan-card elevation="1">
+    <h3 class="downscaled underscore">
+      Proto-hahmari
+    </h3>
+    <cyan-toolbar>
+      <StatBox
+        label="Laji"
+        :value="species"
+      />
       <StatBox
         label="Koko"
         :value="size"
       />
-    </cyan-card>
+    </cyan-toolbar>
+    <hr>
+    <EquipmentBox />
   </article>
 </template>

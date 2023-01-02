@@ -18,8 +18,8 @@ const { species, background } = useCharacter()
       <SpeciesSelect v-model="species" />
       <ProfessionSelect v-model="background" />
     </article>
-    <DebugColumn />
     <AppInfoColumn />
     <OnlineCharacterSheet />
+    <DebugColumn />
   </main>
 </template>
