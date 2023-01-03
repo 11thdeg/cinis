@@ -1,6 +1,6 @@
 import { computed, Ref, ref } from 'vue'
 import { backgrounds } from './backgrounds'
-import { characterFeatures } from './features'
+import { characterFeatures, option } from './features'
 
 const species = ref('')
 const _background = ref('')
@@ -81,9 +81,11 @@ function getFeatureSet( type: string ) {
     const feature = characterFeatures[feat]
     if (feature) {
       console.log('feature:', feature)
-      for (const effect of feature.effects) {
-        if (effect[0] === type) {
-          feats.add(effect[1])
+      if (feature.effects) {
+        for (const effect of feature.effects) {
+          if (effect[0] === type) {
+            feats.add(effect[1])
+          }
         }
       }
     }
@@ -107,6 +109,8 @@ const equipment = computed(() => {
   return [...getFeatureSet('equipment')]
 })
 
+const _options = ref<option[]>([])
+const options = computed(() => _options.value)
 
 export function useCharacter () {
   return {
@@ -121,6 +125,7 @@ export function useCharacter () {
     languages,
     description,
     size,
-    equipment
+    equipment,
+    options
   }
 }
