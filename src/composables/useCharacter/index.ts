@@ -104,6 +104,9 @@ const description = computed(() => {
 const size = computed(() => {
   return [...getFeatureSet('size')][0] || '-'
 })
+const speed = computed(() => {
+  return [...getFeatureSet('speed')][0] || '-'
+})
 
 const equipment = computed(() => {
   return [...getFeatureSet('equipment')]
@@ -125,6 +128,7 @@ export function useCharacter () {
     languages,
     description,
     size,
+    speed, 
     equipment,
     options
   }

@@ -1,4 +1,5 @@
 import { backgroundFeatures } from './backgrounds'
+import { speciesFeatures } from './species'
 
 export type option = {
   feature: string,
@@ -33,5 +34,6 @@ export const characterFeatures:Record<string, CharacterFeature> = {
       ['size', 'Keskikokoinen'],
     ]
   },
+  ...speciesFeatures,
   ...backgroundFeatures
 }
