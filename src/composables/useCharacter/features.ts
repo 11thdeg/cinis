@@ -1,9 +1,17 @@
 import { backgroundFeatures } from './backgrounds'
+import { speciesFeatures } from './species'
+
+export type option = {
+  feature: string,
+  type: string,
+  values: string[]
+}
 
 export type CharacterFeature = {
   description: string
   type: 'background' | 'species' | 'variant'
-  effects: string[][] // [[stat, value], [stat, value], ... ]
+  effects?: string[][] // [[stat, value], [stat, value], ... ]
+  options?: option[]
 }
 
 export const characterFeatures:Record<string, CharacterFeature> = {
@@ -26,5 +34,6 @@ export const characterFeatures:Record<string, CharacterFeature> = {
       ['size', 'Keskikokoinen'],
     ]
   },
+  ...speciesFeatures,
   ...backgroundFeatures
 }
