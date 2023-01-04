@@ -9,24 +9,14 @@ export type option = {
 
 export type CharacterFeature = {
   description: string
-  type: 'background' | 'species' | 'variant'
+  type:'species' | 'background'
   effects?: string[][] // [[stat, value], [stat, value], ... ]
-  options?: option[]
+  options?: option[],
+  variantOf?: string,
+  variants?: string[]
 }
 
 export const characterFeatures:Record<string, CharacterFeature> = {
-  elf: {
-    description: 'Haltia',
-    type: 'species',
-    effects: [
-      ['size', 'Keskikokoinen'],
-      ['speed', '9 metriä'],
-      ['description', 'Pimeässä näkö 18 metriä'],
-      ['description', '*Keijujen perintö* Viholliset eivät saa etua hyökkäyksissäsi'],
-      ['description', '*Kevytuninen* Voit nukkua 4h päivässä'],
-      ['language', 'Haltiakieli']
-    ]
-  },
   human: {
     description: 'Ihminen',
     type: 'species',

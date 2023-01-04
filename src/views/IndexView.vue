@@ -5,19 +5,20 @@ import FeatureSelector from '../components/FeatureSelector.vue'
 import IntroSection from '../components/IntroSection.vue'
 import OnlineCharacterSheet from '../components/OnlineCharacterSheet/OnlineCharacterSheet.vue'
 import ProfessionSelect from '../components/ProfessionSelect/ProfessionSelect.vue'
-import SpeciesSelect from '../components/SpeciesSelect/SpeciesSelect.vue'
 import { useCharacter } from '../composables/useCharacter'
 
-const { species, background } = useCharacter()
+const { background } = useCharacter()
 
 </script>
 
 <template>
   <main class="bookLayout">
     <article class="Column">
-      <FeatureSelector feature-type="species" />
       <IntroSection />
-      <SpeciesSelect v-model="species" />
+      <FeatureSelector
+        label="Laji"
+        feature-type="species"
+      />
       <ProfessionSelect v-model="background" />
     </article>
     <AppInfoColumn />

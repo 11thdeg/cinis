@@ -27,11 +27,14 @@ const features:Ref<Set<string>> = ref(new Set())
 /**
  * Adds a feature to the character, and removes any conflicting features and their effects
  * 
- * @param f a feature name, from the characterFeatures object
+ * @param f key of the feature
  */
 function addFeature (f: string) {
   const feat = characterFeatures[f]
   if (feat) {
+    if (feat.variantOf !== undefined) {
+      throw new Error('Cannot add a variant of a feature directly, use addVariant instead')
+    }
     if (feat.type === 'species') {
       features.value.delete(species.value)
       features.value.add(f)
@@ -47,6 +50,27 @@ function addFeature (f: string) {
     console.error('Unknown feature', f)
   }
 }
+/**
+ * Adds a variant of a feature to the character, and removes any conflicting features and their effects
+ * 
+ * @param variant key of the variant
+ * @param replaces key of the feature to replace
+ */
+function addVariant (variant: string, replaces: string) {
+  const feat = characterFeatures[variant]
+  if (feat && features.value.has(replaces)) {
+    if (feat.variantOf === replaces) {
+      variants[replaces] = variant
+      features.value.delete(replaces)
+      features.value.add(variant)
+    }
+  }
+  else {
+    console.error('Unknown feature, or original', variant, replaces)
+  }
+}
+
+
 function removeFeature (f: string) {
   features.value.delete(f)
   // TODO
@@ -115,6 +139,10 @@ const equipment = computed(() => {
 const _options = ref<option[]>([])
 const options = computed(() => _options.value)
 
+const variants:Record<string, string> = {}
+
+
+
 export function useCharacter () {
   return {
     professions: computed(() => [...(new Set(professions.value))].sort()),
@@ -130,6 +158,7 @@ export function useCharacter () {
     size,
     speed, 
     equipment,
-    options
+    options,
+    addVariant
   }
 }
