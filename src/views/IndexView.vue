@@ -4,11 +4,6 @@ import DebugColumn from '../components/DebugColumn/DebugColumn.vue'
 import FeatureSelector from '../components/FeatureSelector.vue'
 import IntroSection from '../components/IntroSection.vue'
 import OnlineCharacterSheet from '../components/OnlineCharacterSheet/OnlineCharacterSheet.vue'
-import ProfessionSelect from '../components/ProfessionSelect/ProfessionSelect.vue'
-import { useCharacter } from '../composables/useCharacter'
-
-const { background } = useCharacter()
-
 </script>
 
 <template>
@@ -19,7 +14,10 @@ const { background } = useCharacter()
         label="Laji"
         feature-type="species"
       />
-      <ProfessionSelect v-model="background" />
+      <FeatureSelector
+        label="Tausta"
+        feature-type="background"
+      />
     </article>
     <AppInfoColumn />
     <OnlineCharacterSheet />
