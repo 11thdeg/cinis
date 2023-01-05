@@ -17,13 +17,6 @@ export type CharacterFeature = {
 }
 
 export const characterFeatures:Record<string, CharacterFeature> = {
-  human: {
-    description: 'Ihminen',
-    type: 'species',
-    effects: [
-      ['size', 'Keskikokoinen'],
-    ]
-  },
   ...speciesFeatures,
   ...backgroundFeatures
 }

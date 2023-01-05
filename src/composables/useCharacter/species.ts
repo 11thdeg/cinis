@@ -1,5 +1,11 @@
 import { CharacterFeature } from './features'
 
+const allLanguages = [
+  'Yleiskieli',
+  'Aliskieli',
+  'Haltiakieli'
+]
+
 const dragonbornBreahtWeapons:string[] = [
   'Musta - Happo - 12 metriä pitkä ja 2 metrin levyinen linja (KET-pelastusheitto)',
   'Sininen - Salama - 12 metriä pitkä ja 2 metrin levyinen linja (KET-pelastusheitto)',
@@ -63,7 +69,32 @@ const elfSpecies:Record<string, CharacterFeature> = {
   }
 }
 
+const humanSpecies:Record<string, CharacterFeature> = {
+  human: {
+    description: 'Ihminen',
+    type: 'species',
+    effects: [
+      ['size', 'Keskikokoinen'],
+      ['speed', '12 metriä'],
+      ['language', 'Yleiskieli'],
+    ],
+    options: [
+      {
+        feature: 'Potentiaali',
+        type: 'feat',
+        values: ['Feat 1', 'Feat 2', 'Feat 3']
+      },
+      {
+        feature: 'Kieli',
+        type: 'language',
+        values: [...allLanguages]
+      }
+    ]
+  }
+}
+
 export const speciesFeatures:Record<string, CharacterFeature> = {
+  ...humanSpecies,
   ...elfSpecies,
   dragonborn: {
     description: 'Louhelainen',
