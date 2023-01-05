@@ -10,7 +10,7 @@ const props = defineProps<{
   featureType: string
 }>()
 
-const { addFeature, addVariant } = useCharacter()
+const { addFeature } = useCharacter()
 
 const selectedFeature = ref('')
 const selectedVariant = ref('')
@@ -62,7 +62,7 @@ function onFeatureSelect(e: Event) {
 function onVariantSelect(e: Event) {
   const value = (e.target as CyanSelect).value
   selectedVariant.value = value
-  addVariant(value, selectedFeature.value)
+  addFeature(value)
 }
 
 </script>

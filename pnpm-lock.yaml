@@ -1,7 +1,7 @@
 lockfileVersion: 5.4
 
 specifiers:
-  '@11thdeg/cyan': 0.30.6
+  '@11thdeg/cyan': 0.30.7
   '@typescript-eslint/eslint-plugin': ^5.46.1
   '@typescript-eslint/parser': ^5.46.1
   '@vitejs/plugin-vue': ^4.0.0
@@ -15,7 +15,7 @@ specifiers:
   vue-tsc: ^1.0.11
 
 dependencies:
-  '@11thdeg/cyan': 0.30.6
+  '@11thdeg/cyan': 0.30.7
   vue: 3.2.45
   vue-router: 4.1.6_vue@3.2.45
 
@@ -32,8 +32,8 @@ devDependencies:
 
 packages:
 
-  /@11thdeg/cyan/0.30.6:
-    resolution: {integrity: sha512-9zUqak+qIYGC6CFirvINzEKlsZxw45+f4SKsDakqM1Zgk6blwiVxLfvHM6uSRdi6rsLvfTnVyYhCJ2wzRk82ag==}
+  /@11thdeg/cyan/0.30.7:
+    resolution: {integrity: sha512-nHGJ/kXdYxrdx5rOlL+UZZhJe2m2fJLMn42XBJjr97iqhOm28I8KwjvDBiqYgAYqmrJHor9QWkk7fzmukX268g==}
     dependencies:
       europa: 6.0.0
       lit: 2.5.0

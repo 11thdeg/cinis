@@ -1,5 +1,11 @@
 import { CharacterFeature } from './features'
 
+const allLanguages = [
+  'Yleiskieli',
+  'Aliskieli',
+  'Haltiakieli'
+]
+
 const dragonbornBreahtWeapons:string[] = [
   'Musta - Happo - 12 metriä pitkä ja 2 metrin levyinen linja (KET-pelastusheitto)',
   'Sininen - Salama - 12 metriä pitkä ja 2 metrin levyinen linja (KET-pelastusheitto)',
@@ -19,10 +25,15 @@ const elfSpecies:Record<string, CharacterFeature> = {
     type: 'species',
     effects: [
       ['size', 'Keskikokoinen'],
-      ['speed', '9 metriä'],
-      ['description', 'Pimeässä näkö 18 metriä'],
-      ['description', '*Keijujen perintö* Viholliset eivät saa etua hyökkäyksissäsi'],
-      ['description', '*Kevytuninen* Voit nukkua 4h päivässä'],
+      ['speed', '12 metriä'],
+      ['description', '*Pimeänäkö:* 24m'],
+      ['description', '*Tarkat aistit:* pätevyys tarkkaavaisuustaitoon'],
+      ['proficiency', 'perception'],
+      ['description', '*Keijujen perintö* sinua ei voi vaivuttaa uneen magialla, ja sinulla on etu pelastusheittoihin lumotuksi tulemista, kuten loitsua lumoa henkilö vastaan.'],
+      ['immunity', 'Unta vastaan'],
+      ['advantage', 'Lumoamista vastaan'],
+      ['description', '*Transsi* Transsi. Haltioiden ei tarvitse nukkua. Haltiat harjoittavat meditaatiota puoliksi tietoisessa tilassa neljä tuntia päivässä. '],
+      ['language', 'Yleiskieli'],
       ['language', 'Haltiakieli']
     ],
     variants: ['high_elf', 'wood_elf', 'dark_elf']
@@ -40,11 +51,50 @@ const elfSpecies:Record<string, CharacterFeature> = {
   dark_elf: {
     description: 'Pimeähaltia',
     type: 'species',
-    variantOf: 'elf'
+    variantOf: 'elf',
+    effects: [
+      ['size', 'Keskikokoinen'],
+      ['speed', '12 metriä'],
+      ['description', '*Ylivertainen pimeänäkö:* 48m'],
+      ['description', '*Tarkat aistit:* pätevyys tarkkaavaisuustaitoon'],
+      ['proficiency', 'perception'],
+      ['description', '*Keijujen perintö* sinua ei voi vaivuttaa uneen magialla, ja sinulla on etu pelastusheittoihin lumotuksi tulemista, kuten loitsua lumoa henkilö vastaan.'],
+      ['immunity', 'Unta vastaan'],
+      ['advantage', 'Lumoamista vastaan'],
+      ['description', '*Transsi* Transsi. Haltioiden ei tarvitse nukkua. Haltiat harjoittavat meditaatiota puoliksi tietoisessa tilassa neljä tuntia päivässä. '],
+      ['language', 'Yleiskieli'],
+      ['language', 'Haltiakieli'],
+      ['language', 'Aliskieli']
+    ],
+  }
+}
+
+const humanSpecies:Record<string, CharacterFeature> = {
+  human: {
+    description: 'Ihminen',
+    type: 'species',
+    effects: [
+      ['size', 'Keskikokoinen'],
+      ['speed', '12 metriä'],
+      ['language', 'Yleiskieli'],
+    ],
+    options: [
+      {
+        feature: 'Potentiaali',
+        type: 'feat',
+        values: ['Feat 1', 'Feat 2', 'Feat 3']
+      },
+      {
+        feature: 'Kieli',
+        type: 'language',
+        values: [...allLanguages]
+      }
+    ]
   }
 }
 
 export const speciesFeatures:Record<string, CharacterFeature> = {
+  ...humanSpecies,
   ...elfSpecies,
   dragonborn: {
     description: 'Louhelainen',
