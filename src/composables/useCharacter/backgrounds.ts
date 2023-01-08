@@ -152,7 +152,7 @@ export const backgroundFeatures:Record<string, CharacterFeature> = {
     type: 'background',
     effects: [
       ['proficiency', 'perception'],
-      ['proficiency', 'athletics'],
+      ['proficiency', 'Athletics'],
       ['language', 'any'],
       ['equipment', 'Lapio'],
       ['equipment', 'Sorkkarauta'],

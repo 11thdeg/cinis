@@ -1,5 +1,6 @@
 <script lang="ts" setup>
 import { useCharacter } from '../../composables/useCharacter'
+import AbilityAndSkillsBox from './AbilityAndSkillsBox.vue'
 import DescriptionBox from './DescriptionBox.vue'
 import EquipmentBox from './EquipmentBox.vue'
 import StatBox from './StatBox.vue'
@@ -26,6 +27,11 @@ const { size, species, speed } = useCharacter()
         :value="speed"
       />
     </section>
+    <hr>
+    <AbilityAndSkillsBox
+      ability="Strength"
+      :skills="['Athletics']"
+    />
     <hr>
     <section
       style="display: grid; grid-template-columns: 1fr 1fr;"
