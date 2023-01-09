@@ -25,20 +25,27 @@ function hasProficiency(skill: string) {
 
 <template>
   <section class="AbilityAndSkillBox">
-    <h3 class="score">
-      {{ abilityScore }}
-    </h3>
+    <h4 class="TypeBody2">
+      {{ ability }}
+    </h4>
+    <h4 class="score downscaled">
+      {{ abilityScore > 0 ? '+ ' : '' }}{{ abilityScore }}
+    </h4>
     <p
       v-for="skill in skillScores"
       :key="skill[0]"
+      class="TypeCaption"
       :class="{ proficiency: hasProficiency(skill[0] + '') }"
     >
-      {{ skill[0] }}: {{ skill[1] }} ({{ skill[2] }})
+      {{ skill[0] }}: {{ skill[1] > 0 ? '+ ': '' }} {{ skill[1] }}
     </p>
   </section>
 </template>
 
 <style scoped>
+.AbilityAndSkillBox {
+  align-self: flex-start;
+}
 .proficiency {
   font-weight: bold;
 }

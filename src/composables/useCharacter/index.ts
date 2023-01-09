@@ -119,7 +119,12 @@ const _options = ref<option[]>([])
 const options = computed(() => _options.value)
 
 const abilities = ref<Record<string, number>>({
-  Strength: 12,
+  Strength: 0,
+  Dexterity: 1,
+  Constitution: 1,
+  Intelligence: 3,
+  Wisdom: 1,
+  Charisma: 2
 })
 
 const proficiencies = computed(() => {

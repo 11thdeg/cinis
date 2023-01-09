@@ -28,10 +28,32 @@ const { size, species, speed } = useCharacter()
       />
     </section>
     <hr>
-    <AbilityAndSkillsBox
-      ability="Strength"
-      :skills="['Athletics']"
-    />
+    <div class="flex">
+      <AbilityAndSkillsBox
+        ability="Strength"
+        :skills="['Athletics']"
+      />
+      <AbilityAndSkillsBox
+        ability="Dexterity"
+        :skills="['Acrobatics', 'Sleight of Hand', 'Stealth']"
+      />
+      <AbilityAndSkillsBox
+        ability="Constitution"
+        :skills="['']"
+      />
+      <AbilityAndSkillsBox
+        ability="Intelligence"
+        :skills="['Arcana', 'History', 'Investigation', 'Nature', 'Religion']"
+      />
+      <AbilityAndSkillsBox
+        ability="Wisdom"
+        :skills="['Animal Handling', 'Insight', 'Medicine', 'Perception', 'Survival']"
+      />
+      <AbilityAndSkillsBox
+        ability="Charisma"
+        :skills="['Deception', 'Intimidation', 'Performance', 'Persuasion']"
+      />
+    </div>
     <hr>
     <section
       style="display: grid; grid-template-columns: 1fr 1fr;"
