@@ -1,7 +1,7 @@
 <script lang="ts" setup>
 import { useCharacter } from '../../composables/useCharacter'
 
-const { species, background, professions, languages, description, size, equipment, features } = useCharacter()
+const { species, background, proficiencies, languages, description, size, equipment, features } = useCharacter()
 
 </script>
 <template>
@@ -19,22 +19,22 @@ const { species, background, professions, languages, description, size, equipmen
       </p>
       <section class="dataTable">
         <p class="TypeBody2">
-          <strong>Laji:</strong>
+          <cyan-code>species</cyan-code>
         </p>
         <p class="TypeBody2">
           {{ species }}
         </p>
         <p class="TypeBody2">
-          <strong>Ammatti:</strong>
+          <cyan-code>background</cyan-code>
         </p>
         <p class="TypeBody2">
           {{ background }}
         </p>
         <p class="TypeBody2">
-          <strong>Osaamiset:</strong>
+          <cyan-code>proficiencies</cyan-code>
         </p>
         <p class="TypeBody2">
-          {{ professions }}
+          {{ proficiencies }}
         </p>
         <p class="TypeBody2">
           <strong>Kielet:</strong>
