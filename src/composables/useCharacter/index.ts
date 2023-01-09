@@ -118,6 +118,32 @@ const equipment = computed(() => {
 const _options = ref<option[]>([])
 const options = computed(() => _options.value)
 
+const abilities = ref<Record<string, number>>({
+  Strength: 0,
+  Dexterity: 1,
+  Constitution: 1,
+  Intelligence: 3,
+  Wisdom: 1,
+  Charisma: 2
+})
+
+const proficiencies = computed(() => {
+  const profs = new Set<string>()
+  for (const feat of features.value) {
+    const feature = characterFeatures[feat]
+    if (feature) {
+      if (feature.effects) {
+        for (const effect of feature.effects) {
+          if (effect[0] === 'proficiency') {
+            profs.add(effect[1])
+          }
+        }
+      }
+    }
+  }
+  return profs
+})
+
 export function useCharacter () {
   return {
     professions: computed(() => [...(new Set(professions.value))].sort()),
@@ -134,6 +160,9 @@ export function useCharacter () {
     speed, 
     equipment,
     options,
+    abilities,
+    proficiencies,
+    proficiencyBonus: computed(() => 2),
     features: computed(() => [...features.value.keys()]),
   }
 }

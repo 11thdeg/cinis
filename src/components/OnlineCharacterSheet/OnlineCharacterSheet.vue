@@ -1,5 +1,6 @@
 <script lang="ts" setup>
 import { useCharacter } from '../../composables/useCharacter'
+import AbilityAndSkillsBox from './AbilityAndSkillsBox.vue'
 import DescriptionBox from './DescriptionBox.vue'
 import EquipmentBox from './EquipmentBox.vue'
 import StatBox from './StatBox.vue'
@@ -26,6 +27,33 @@ const { size, species, speed } = useCharacter()
         :value="speed"
       />
     </section>
+    <hr>
+    <div class="flex">
+      <AbilityAndSkillsBox
+        ability="Strength"
+        :skills="['Athletics']"
+      />
+      <AbilityAndSkillsBox
+        ability="Dexterity"
+        :skills="['Acrobatics', 'Sleight of Hand', 'Stealth']"
+      />
+      <AbilityAndSkillsBox
+        ability="Constitution"
+        :skills="['']"
+      />
+      <AbilityAndSkillsBox
+        ability="Intelligence"
+        :skills="['Arcana', 'History', 'Investigation', 'Nature', 'Religion']"
+      />
+      <AbilityAndSkillsBox
+        ability="Wisdom"
+        :skills="['Animal Handling', 'Insight', 'Medicine', 'Perception', 'Survival']"
+      />
+      <AbilityAndSkillsBox
+        ability="Charisma"
+        :skills="['Deception', 'Intimidation', 'Performance', 'Persuasion']"
+      />
+    </div>
     <hr>
     <section
       style="display: grid; grid-template-columns: 1fr 1fr;"
