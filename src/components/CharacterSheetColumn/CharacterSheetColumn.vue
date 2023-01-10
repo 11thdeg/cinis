@@ -1,51 +1,56 @@
 
 <script lang="ts" setup>
 import AbilityStatBox from './AbilityStatBox.vue'
+import SpeciesBox from './SpeciesBox.vue'
 </script>
 
 <template>
   <article class="large Column CharacterSheetContainer">
     <svg
       class="CharacterSheet"
-      width="2480px"
-      height="3508px"
+      width="2480pt"
+      height="3508pt"
     >
       <rect
-        cx="0"
-        cy="0"
-        width="2480px"
-        height="3508px"
+        x="0"
+        y="0"
+        width="2480"
+        height="3508"
         fill="#eee"
       />
       <AbilityStatBox
-        :cx="10"
-        :cy="10"
+        :x="10"
+        :y="10"
         ability="Strength"
       />
       <AbilityStatBox
-        :cx="10"
-        :cy="110"
+        :x="10"
+        :y="110"
         ability="Dexterity"
       />
       <AbilityStatBox
-        :cx="10"
-        :cy="210"
+        :x="10"
+        :y="210"
         ability="Constitution"
       />
       <AbilityStatBox
-        :cx="10"
-        :cy="310"
+        :x="10"
+        :y="310"
         ability="Intelligence"
       />
       <AbilityStatBox
-        :cx="10"
-        :cy="410"
+        :x="10"
+        :y="410"
         ability="Wisdom"
       />
       <AbilityStatBox
-        :cx="10"
-        :cy="510"
+        :x="10"
+        :y="510"
         ability="Charisma"
+      />
+      <SpeciesBox
+        :x="240"
+        :y="10"
       />
     </svg>
   </article>
@@ -55,4 +60,5 @@ import AbilityStatBox from './AbilityStatBox.vue'
 .CharacterSheet
   width: 100%
   height: auto
+  object-fit: contain
 </style>

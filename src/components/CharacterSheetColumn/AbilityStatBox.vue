@@ -3,8 +3,8 @@ import { computed } from 'vue'
 import { useCharacter } from '../../composables/useCharacter'
 
 const props = defineProps<{
-  cx: number
-  cy: number
+  x: number
+  y: number
   ability: string
 }>()
 
@@ -16,21 +16,21 @@ const abilityScore = computed(() => abilities.value[props.ability])
 
 <template>
   <rect 
-    :x="cx+'px'"
-    :y="cy+'px'"
-    width="220px"
-    height="88px"
+    :x="x"
+    :y="y"
+    width="220"
+    height="88"
     fill="hsla(0, 0%, 0%, 0.1)"
   />
   <text
-    :x="(cx + 12)+'px'"
-    :y="(cy + 24)+'px'"
+    :x="x + 12"
+    :y="y + 24"
   >
     {{ props.ability }}
   </text>
   <text 
-    :x="(cx + 12)+'px'"
-    :y="(cy + 50)+'px'"
+    :x="x + 12"
+    :y="y + 50"
     class="score"
   >
     {{ abilityScore > 0 ? '+ ' : '' }}{{ abilityScore }}
