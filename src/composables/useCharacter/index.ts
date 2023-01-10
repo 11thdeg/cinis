@@ -164,5 +164,6 @@ export function useCharacter () {
     proficiencies,
     proficiencyBonus: computed(() => 2),
     features: computed(() => [...features.value.keys()]),
+    featureMap: computed(() => characterFeatures)
   }
 }

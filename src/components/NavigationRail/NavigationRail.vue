@@ -1,9 +1,17 @@
 <template>
   <cyan-navigation-rail>
-    <cyan-navigation-button
-      noun="page"
-      active
-    />
+    <router-link to="/">
+      <cyan-navigation-button
+        noun="page-edit"
+        :active="$route.path === '/'"
+      />
+    </router-link>
+    <router-link to="/sheet">
+      <cyan-navigation-button
+        noun="page-character-sheet"
+        :active="$route.path === '/sheet'"
+      />
+    </router-link>
     <cyan-spacer />
     <a href="https://pelilauta.web.app">
       <cyan-navigation-button
