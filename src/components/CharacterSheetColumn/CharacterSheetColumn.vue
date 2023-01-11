@@ -55,7 +55,7 @@ import SpeciesBox from './SpeciesBox.vue'
         :skills="['Deception', 'Intimidation', 'Performance', 'Persuasion']"
       />
       <SpeciesBox
-        :x="240"
+        :x="215"
         :y="10"
       />
     </svg>
