@@ -144,8 +144,14 @@ const proficiencies = computed(() => {
   return profs
 })
 
+const name = ref('Ramalama')
+const alignment = ref('Kaoottisen hyvä')
+
 export function useCharacter () {
   return {
+    name,
+    alignment,
+    // --
     professions: computed(() => [...(new Set(professions.value))].sort()),
     addProfession,
     removeProfession,

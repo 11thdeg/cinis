@@ -1,6 +1,8 @@
 <script lang="ts" setup>
 import { useCharacter } from '../../composables/useCharacter'
 import AbilityAndSkillsBox from './AbilityAndSkillsBox.vue'
+import AbilityAndSkillsCard from './AbilityAndSkillsCard.vue'
+import BasicInfoCard from './BasicInfoCard.vue'
 import DescriptionBox from './DescriptionBox.vue'
 import EquipmentBox from './EquipmentBox.vue'
 import StatBox from './StatBox.vue'
@@ -9,7 +11,20 @@ const { size, species, speed } = useCharacter()
 </script>
 
 <template>
-  <article class="large Column">
+  <article class="large Column theme-ll">
+    <div class="grid threecol">
+      <div class="flex flex-column">
+        <BasicInfoCard />
+        <AbilityAndSkillsCard
+          ability="strength"
+          :skills="['athletics']"
+        />
+        <AbilityAndSkillsCard
+          ability="dexterity"
+          :skills="['acrobatics', 'stealth', 'sleight of hand']"
+        />
+      </div>
+    </div>
     <h3 class="downscaled underscore">
       Proto-hahmari
     </h3>
@@ -63,3 +78,11 @@ const { size, species, speed } = useCharacter()
     </section>
   </article>
 </template>
+
+<style lang="sass" scoped>
+.grid
+  display: grid
+
+.threecol
+  grid-template-columns: 1fr 1fr 1fr
+</style>
