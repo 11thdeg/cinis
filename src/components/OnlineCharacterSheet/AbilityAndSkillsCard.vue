@@ -67,7 +67,6 @@ function hasProficiency(skill: string) {
             />:</span> {{ skill[1] }}
           </li>
         </ul>
-        {{ proficiencies }}
       </section>
     </div>
   </cyan-card>

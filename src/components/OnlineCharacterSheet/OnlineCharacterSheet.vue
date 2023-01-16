@@ -23,6 +23,22 @@ const { size, species, speed } = useCharacter()
           ability="dexterity"
           :skills="['acrobatics', 'stealth', 'sleight of hand']"
         />
+        <AbilityAndSkillsCard
+          ability="constitution"
+          :skills="[]"
+        />
+        <AbilityAndSkillsCard
+          ability="intelligence"
+          :skills="['Arcana', 'History', 'Investigation', 'Nature', 'Religion']"
+        />
+        <AbilityAndSkillsCard
+          ability="wisdom"
+          :skills="['Animal Handling', 'Insight', 'Medicine', 'Perception', 'Survival']"
+        />
+        <AbilityAndSkillsCard
+          ability="charisma"
+          :skills="['Deception', 'Intimidation', 'Performance', 'Persuasion']"
+        />
       </div>
     </div>
     <h3 class="downscaled underscore">
