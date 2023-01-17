@@ -5,12 +5,15 @@ const { description } = useCharacter()
 </script>
 
 <template>
-  <section class="EquipmentBox stat">
-    <h4 class="downscaled">
+  <cyan-card>
+    <h4
+      slot="title"
+      class="downscaled"
+    >
       Muuta
     </h4>
     <br>
-    <ul class="TypeBody2">
+    <ul class="TypeBody2 list-plain">
       <li
         v-for="eq in description"
         :key="eq"
@@ -19,5 +22,5 @@ const { description } = useCharacter()
         {{ eq }}
       </li>
     </ul>
-  </section>
+  </cyan-card>
 </template>
