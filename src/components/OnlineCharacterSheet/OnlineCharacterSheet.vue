@@ -5,6 +5,7 @@ import AbilityAndSkillsCard from './AbilityAndSkillsCard.vue'
 import BasicInfoCard from './BasicInfoCard.vue'
 import DescriptionBox from './DescriptionBox.vue'
 import EquipmentBox from './EquipmentBox.vue'
+import LanguagesAndProdiciencies from './LanguagesAndProdiciencies.vue'
 import StatBox from './StatBox.vue'
 
 const { size, species, speed } = useCharacter()
@@ -39,6 +40,7 @@ const { size, species, speed } = useCharacter()
           ability="charisma"
           :skills="['Deception', 'Intimidation', 'Performance', 'Persuasion']"
         />
+        <LanguagesAndProdiciencies />
       </div>
     </div>
     <h3 class="downscaled underscore">

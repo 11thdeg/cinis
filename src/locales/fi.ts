@@ -16,6 +16,11 @@ export const fi = {
     stealth: 'Hiipiminen',
     species: 'Laji',
     strength: 'Voimakkuus',
-    wisdom: 'Viisaus'
+    wisdom: 'Viisaus',
+    language: 'Kieli',
+    languages: {
+      common: 'Yleiskieli',
+      elvish: 'Haltiakieli'
+    }
   }
 }
