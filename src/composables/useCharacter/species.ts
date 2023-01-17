@@ -33,8 +33,8 @@ const elfSpecies:Record<string, CharacterFeature> = {
       ['immunity', 'Unta vastaan'],
       ['advantage', 'Lumoamista vastaan'],
       ['description', '*Transsi* Transsi. Haltioiden ei tarvitse nukkua. Haltiat harjoittavat meditaatiota puoliksi tietoisessa tilassa neljä tuntia päivässä. '],
-      ['language', 'Yleiskieli'],
-      ['language', 'Haltiakieli']
+      ['language', 'common'],
+      ['language', 'elvish']
     ],
     variants: ['high_elf', 'wood_elf', 'dark_elf']
   },
@@ -116,18 +116,18 @@ const humanSpecies:Record<string, CharacterFeature> = {
     description: 'Ihminen',
     type: 'species',
     effects: [
-      ['size', 'Keskikokoinen'],
-      ['speed', '12 metriä'],
-      ['language', 'Yleiskieli'],
+      ['size', 'medium'],
+      ['speed', '12'],
+      ['language', 'common'],
     ],
     options: [
       {
-        feature: 'Potentiaali',
+        feature: 'potential',
         type: 'feat',
         values: ['Feat 1', 'Feat 2', 'Feat 3']
       },
       {
-        feature: 'Kieli',
+        feature: 'language',
         type: 'language',
         values: [...allLanguages]
       }

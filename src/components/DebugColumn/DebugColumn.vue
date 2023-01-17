@@ -37,7 +37,7 @@ const { species, background, proficiencies, languages, description, size, equipm
           {{ proficiencies }}
         </p>
         <p class="TypeBody2">
-          <strong>Kielet:</strong>
+          <cyan-code>languages</cyan-code>
         </p>
         <p class="TypeBody2">
           {{ languages }}
