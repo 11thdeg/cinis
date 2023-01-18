@@ -10,7 +10,9 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "@11thdeg/cyan": "0.31.0",
+    "@11thdeg/cyan": "0.32.1",
+    "@types/marked": "^4.0.8",
+    "marked": "^4.2.12",
     "vue": "^3.2.45",
     "vue-i18n": "9",
     "vue-router": "4"

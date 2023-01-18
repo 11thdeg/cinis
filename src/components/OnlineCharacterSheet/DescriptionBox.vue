@@ -1,5 +1,6 @@
 <script lang="ts" setup>
 import { useCharacter } from '../../composables/useCharacter'
+import { marked } from 'marked'
 
 const { description } = useCharacter()
 </script>
@@ -19,8 +20,14 @@ const { description } = useCharacter()
         :key="eq"
         class="TypeBody2"
       >
-        {{ eq }}
+        <div :innerHTML="marked(eq)" class="desctext"/>
       </li>
     </ul>
   </cyan-card>
 </template>
+
+<style lang="sass">
+.desctext
+  p
+    font-size: var(--cn-font-size-body2)
+</style>
