@@ -9,12 +9,18 @@ export const fi = {
     charisma: 'Karisma',
     constitution: 'Kestävyys',
     dexterity: 'Ketteryys',
+    initiative: 'Aloite',
     intelligence: 'Älykkyys',
     name: 'Nimi',
     save: 'Pelastusheitot',
+    size: 'Koko',
+    sizes: {
+      medium: 'Keskikokoinen'
+    },
     'sleight of hand': 'Sorminäppäryys',
     stealth: 'Hiipiminen',
     species: 'Laji',
+    speed: 'Nopeus',
     strength: 'Voimakkuus',
     wisdom: 'Viisaus',
     language: 'Kieli',

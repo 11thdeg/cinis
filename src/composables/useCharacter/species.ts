@@ -24,8 +24,8 @@ const elfSpecies:Record<string, CharacterFeature> = {
     description: 'Haltia',
     type: 'species',
     effects: [
-      ['size', 'Keskikokoinen'],
-      ['speed', '12 metriä'],
+      ['size', 'medium'],
+      ['speed', '12'],
       ['description', '*Pimeänäkö:* 24m'],
       ['description', '*Tarkat aistit:* pätevyys tarkkaavaisuustaitoon'],
       ['proficiency', 'perception'],

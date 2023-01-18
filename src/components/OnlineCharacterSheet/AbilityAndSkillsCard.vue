@@ -30,13 +30,19 @@ function hasProficiency(skill: string) {
   return proficiencies.value.has(skill)
 }
 
+const abilityNoun = computed(() =>
+{ 
+  if (props.ability === 'wisdom') return 'eye'
+  if (props.ability === 'intelligence') return 'books'
+  return props.ability.toLowerCase() })
+
 </script>
 
 <template>
   <cyan-card>
     <cyan-icon
       slot="avatar"
-      :noun="ability.toLowerCase()"
+      :noun="abilityNoun"
     />
     <h4 slot="title">
       {{ $t('stat.'+ability) }}
