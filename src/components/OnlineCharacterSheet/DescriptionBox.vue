@@ -20,7 +20,10 @@ const { description } = useCharacter()
         :key="eq"
         class="TypeBody2"
       >
-        <div :innerHTML="marked(eq)" class="desctext"/>
+        <div
+          :innerHTML="marked(eq)"
+          class="desctext"
+        />
       </li>
     </ul>
   </cyan-card>
