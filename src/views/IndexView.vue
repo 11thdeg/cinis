@@ -3,6 +3,7 @@ import AppInfoColumn from '../components/AppInfoColumn/AppInfoColumn.vue'
 import DebugColumn from '../components/DebugColumn/DebugColumn.vue'
 import FeatureSelector from '../components/FeatureSelector.vue'
 import IntroSection from '../components/IntroSection.vue'
+import OptionsSection from '../components/OptionsSection/OptionsSection.vue';
 </script>
 
 <template>
@@ -13,7 +14,7 @@ import IntroSection from '../components/IntroSection.vue'
     <h3>{{ $t('app.title') }}</h3>
   </cyan-top-app-bar>
   <main class="bookLayout">
-    <article class="Column">
+    <article class="Column flex flex-column">
       <IntroSection />
       <FeatureSelector
         label="Laji"
@@ -23,6 +24,7 @@ import IntroSection from '../components/IntroSection.vue'
         label="Tausta"
         feature-type="background"
       />
+      <OptionsSection />
       <br>
       <cyan-toolbar>
         <cyan-spacer />

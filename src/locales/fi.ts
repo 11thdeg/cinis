@@ -1,6 +1,10 @@
 export const fi = {
   app: {
-    title: 'L&L Hahmokone'
+    title: 'L&L Hahmokone',
+    optionsSection: {
+      title: 'Optiot',
+      info: 'Hahmon vaihtoehtoiset ominaisuudet.',
+    }
   },
   feature: {
     elf: 'Haltia'
