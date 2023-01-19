@@ -188,6 +188,7 @@ export function useCharacter () {
     proficiencies,
     proficiencyBonus: computed(() => 2),
     features: computed(() => [...features.value.keys()]),
-    featureMap: computed(() => characterFeatures)
+    featureMap: computed(() => characterFeatures),
+    addOptionalFeature: (feat: string) => { console.log('Not implemented', feat) }
   }
 }

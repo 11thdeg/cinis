@@ -1,5 +1,6 @@
 <script lang="ts" setup>
 import { useCharacter } from '../../composables/useCharacter'
+import OptionSelector from './OptionSelector.vue';
 
 const { options } = useCharacter()
 </script>
@@ -15,6 +16,11 @@ const { options } = useCharacter()
     <p class="TypeCaption">
       {{ $t('app.optionsSection.info') }}
     </p>
+    <OptionSelector
+      v-for="option in options"
+      :key="option.feature"
+      :option="option.feature"
+    />
     <p>{{ options }}</p>
   </section>
 </template>
