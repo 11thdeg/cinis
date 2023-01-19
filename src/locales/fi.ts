@@ -1,4 +1,7 @@
 export const fi = {
+  app: {
+    title: 'L&L Hahmokone'
+  },
   feature: {
     elf: 'Haltia'
   },

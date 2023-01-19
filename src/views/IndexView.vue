@@ -6,6 +6,12 @@ import IntroSection from '../components/IntroSection.vue'
 </script>
 
 <template>
+  <cyan-top-app-bar>
+    <cyan-icon
+      noun="ll"
+    />
+    <h3>{{ $t('app.title') }}</h3>
+  </cyan-top-app-bar>
   <main class="bookLayout">
     <article class="Column">
       <IntroSection />

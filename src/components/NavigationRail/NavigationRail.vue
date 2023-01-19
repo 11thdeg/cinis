@@ -12,6 +12,10 @@
         :active="$route.path === '/sheet'"
       />
     </router-link>
+    <cyan-navigation-button
+      disabled
+      noun="pdf"
+    />
     <cyan-spacer />
     <a href="https://pelilauta.web.app">
       <cyan-navigation-button
