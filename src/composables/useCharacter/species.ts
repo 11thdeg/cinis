@@ -1,12 +1,13 @@
 import { CharacterFeature } from './features'
+import { humanSpecies } from './species/humanSpecies'
 
-const allLanguages = [
+/* const allLanguages = [
   'Yleiskieli',
   'Aliskieli',
   'Haltiakieli'
-]
+] */
 
-const dragonbornBreahtWeapons:string[] = [
+/* const dragonbornBreahtWeapons:string[] = [
   'Musta - Happo - 12 metriä pitkä ja 2 metrin levyinen linja (KET-pelastusheitto)',
   'Sininen - Salama - 12 metriä pitkä ja 2 metrin levyinen linja (KET-pelastusheitto)',
   'Vaski - Tuli - 12 metriä pitkä ja 2 metrin levyinen linja (KET-pelastusheitto)',
@@ -17,7 +18,7 @@ const dragonbornBreahtWeapons:string[] = [
   'Punainen - Tuli - 6 metrin päähän ulottuva kartio (KET-pelastusheitto)',
   'Hopeinen - Kylmä - 6 metrin päähän ulottuva kartio (SIT-pelastusheitto)',
   'Valkoinen - Kylmä - 6 metrin päähän ulottuva kartio (SIT-pelastusheitto)'  
-]
+] */
 
 const elfSpecies:Record<string, CharacterFeature> = {
   elf: {
@@ -60,11 +61,7 @@ const elfSpecies:Record<string, CharacterFeature> = {
       ['proficiency', 'shortbow'],
     ],
     options: [
-      {
-        feature: 'Kieli',
-        type: 'language',
-        values: [...allLanguages]
-      }
+      'elf/high-elf/extra-language',
     ]
   },
   wood_elf: {
@@ -111,30 +108,6 @@ const elfSpecies:Record<string, CharacterFeature> = {
   }
 }
 
-const humanSpecies:Record<string, CharacterFeature> = {
-  human: {
-    description: 'Ihminen',
-    type: 'species',
-    effects: [
-      ['size', 'medium'],
-      ['speed', '12'],
-      ['language', 'common'],
-    ],
-    options: [
-      {
-        feature: 'potential',
-        type: 'feat',
-        values: ['Feat 1', 'Feat 2', 'Feat 3']
-      },
-      {
-        feature: 'language',
-        type: 'language',
-        values: [...allLanguages]
-      }
-    ]
-  }
-}
-
 export const speciesFeatures:Record<string, CharacterFeature> = {
   ...humanSpecies,
   ...elfSpecies,
@@ -148,11 +121,7 @@ export const speciesFeatures:Record<string, CharacterFeature> = {
       ['language', 'Lohikäärmeiden kieli']
     ],
     options: [
-      {
-        feature: 'Henkays',
-        type: 'Breath Weapons',
-        values: [...dragonbornBreahtWeapons]
-      }
+      'dragonborn/draconic-ancestry',
     ],
   }
 }

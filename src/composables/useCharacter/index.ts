@@ -35,14 +35,17 @@ function addFeature (f: string) {
     if (feat.type === 'species') {
       console.log('adding species', f, species.value, features.value)
       features.value.delete(species.value)
+      popOptions(species.value)
       features.value.add(f)
       species.value = f
     }
     else if (feat.type === 'background') {
       features.value.delete(_background.value)
+      popOptions(_background.value)
       features.value.add(f)
       _background.value = f
     }
+    pushOptions(f)
   }
   else {
     console.error('Unknown feature', f)
@@ -94,6 +97,17 @@ function getFeatureSet( type: string ) {
     }
   }
   return feats
+}
+
+function pushOptions (feat: string) {
+  const feature = characterFeatures[feat]
+  if (feature && feature.options) {
+    feature.options?.forEach(o => o.parentFeature = feat)
+    _options.value.push(...feature.options)
+  }
+}
+function popOptions (feat: string) {
+  _options.value = _options.value.filter(o => o.parentFeature !== feat)
 }
 
 const languages = computed(() => {
