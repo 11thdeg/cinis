@@ -1,6 +1,7 @@
 import { computed, Ref, ref } from 'vue'
 import { backgrounds } from './backgrounds'
 import { characterFeatures, option } from './features'
+import { speciesOptions } from './species'
 
 const species = ref('')
 const _background = ref('')
@@ -102,8 +103,11 @@ function getFeatureSet( type: string ) {
 function pushOptions (feat: string) {
   const feature = characterFeatures[feat]
   if (feature && feature.options) {
-    feature.options?.forEach(o => o.parentFeature = feat)
-    _options.value.push(...feature.options)
+    feature.options?.forEach(o => {
+      const op = speciesOptions[o]
+      op.parentFeature = feat
+      _options.value.push(op)
+    })
   }
 }
 function popOptions (feat: string) {

@@ -1,11 +1,5 @@
-import { CharacterFeature } from './features'
-import { humanSpecies } from './species/humanSpecies'
-
-/* const allLanguages = [
-  'Yleiskieli',
-  'Aliskieli',
-  'Haltiakieli'
-] */
+import { CharacterFeature, option } from './features'
+import { humanOptions, humanSpecies } from './species/humanSpecies'
 
 /* const dragonbornBreahtWeapons:string[] = [
   'Musta - Happo - 12 metriä pitkä ja 2 metrin levyinen linja (KET-pelastusheitto)',
@@ -124,5 +118,9 @@ export const speciesFeatures:Record<string, CharacterFeature> = {
       'dragonborn/draconic-ancestry',
     ],
   }
+}
+
+export const speciesOptions:Record<string, option> = {
+  ...humanOptions
 }
 

@@ -1,6 +1,5 @@
 <script lang="ts" setup>
 import { useCharacter } from '../../composables/useCharacter'
-import FeatureSelector from '../FeatureSelector.vue'
 
 const { options } = useCharacter()
 </script>
@@ -16,11 +15,6 @@ const { options } = useCharacter()
     <p class="TypeCaption">
       {{ $t('app.optionsSection.info') }}
     </p>
-    <FeatureSelector
-      v-for="option in options"
-      :key="option.feature"
-      :label="option.feature"
-      :feature-type="option.feature"
-    />
+    <p>{{ options }}</p>
   </section>
 </template>
