@@ -6,6 +6,12 @@ export const allLanguages = [
   'Haltiakieli'
 ]
 
+export const allFeats = [
+  'weaponFocus',
+  'weaponMaster',
+  'stepAhead'
+]
+
 export const humanSpecies:Record<string, CharacterFeature> = { 
   human: {
     description: 'Ihminen',
@@ -27,7 +33,7 @@ export const humanOptions:Record<string, option> = {
     parentFeature: 'human',
     feature: 'potential',
     type: 'feat',
-    values: ['feat 1', 'feat 2', 'feat 3']
+    values: [...allFeats]
   },
   'human/extra-language': {
     parentFeature: 'human',

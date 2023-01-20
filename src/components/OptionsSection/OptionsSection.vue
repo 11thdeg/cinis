@@ -18,8 +18,8 @@ const { options } = useCharacter()
     </p>
     <OptionSelector
       v-for="option in options"
-      :key="option.feature"
-      :option="option.feature"
+      :key="option"
+      :option="option"
     />
     <p>{{ options }}</p>
   </section>

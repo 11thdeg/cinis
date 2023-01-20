@@ -1,7 +1,7 @@
 <script lang="ts" setup>
 import { useCharacter } from '../../composables/useCharacter'
 
-const { species, background, proficiencies, languages, description, size, equipment, features, options } = useCharacter()
+const { species, background, proficiencies, languages, description, size, equipment, features, options, selectedFeatureds } = useCharacter()
 
 </script>
 <template>
@@ -17,6 +17,12 @@ const { species, background, proficiencies, languages, description, size, equipm
       <p class="TypeCaption">
         Tämä tieto ei tule näkymään käyttäjälle. Käyttäjälle luodaan hahmolomake näistä tiedoista.
       </p>
+
+      <p><cyan-code>selectedFeatures</cyan-code></p>
+      <p class="TypeBody2">
+        {{ selectedFeatureds }}
+      </p>
+
       <section class="dataTable">
         <p class="TypeBody2">
           <cyan-code>species</cyan-code>

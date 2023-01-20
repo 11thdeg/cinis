@@ -3,7 +3,6 @@ import { backgrounds } from './backgrounds'
 import { characterFeatures, option } from './features'
 import { speciesOptions } from './species'
 
-const species = ref('')
 const _background = ref('')
 const professions:Ref<string[]> = ref([])
 
@@ -18,41 +17,16 @@ function removeProfession (p: string) {
 }
 
 function reset () {
-  species.value = ''
   background.value = ''
   professions.value = []
+  selectedFeatureds.value = {
+    species: '',
+    background: '',
+    options: <string[]>[]
+  }
 }
 
 const features:Ref<Set<string>> = ref(new Set())
-
-/**
- * Adds a feature to the character, and removes any conflicting features and their effects
- * 
- * @param f key of the feature
- */
-function addFeature (f: string) {
-  const feat = characterFeatures[f]
-  if (feat) {
-    if (feat.type === 'species') {
-      console.log('adding species', f, species.value, features.value)
-      features.value.delete(species.value)
-      popOptions(species.value)
-      features.value.add(f)
-      species.value = f
-    }
-    else if (feat.type === 'background') {
-      features.value.delete(_background.value)
-      popOptions(_background.value)
-      features.value.add(f)
-      _background.value = f
-    }
-    pushOptions(f)
-  }
-  else {
-    console.error('Unknown feature', f)
-  }
-}
-
 
 function removeFeature (f: string) {
   features.value.delete(f)
@@ -110,7 +84,7 @@ function pushOptions (feat: string) {
     })
   }
 }
-function popOptions (feat: string) {
+function popOptions (feat: string|string[]) {
   _options.value = _options.value.filter(o => o.parentFeature !== feat)
 }
 
@@ -134,7 +108,7 @@ const equipment = computed(() => {
 })
 
 const _options = ref<option[]>([])
-const options = computed(() => _options.value)
+
 
 const abilities = ref<Record<string, number>>({
   Strength: 0,
@@ -165,15 +139,54 @@ const proficiencies = computed(() => {
 const name = ref('Ramalama')
 const alignment = ref('Kaoottisen hyvä')
 
+
+// --- refactored from here ---
+
+/**
+ * This is a collection of all the features that have been selected for the character
+ * 
+ * Key is the feature type, value is the feature key(s) as a string or an array of strings
+ */
+const selectedFeatureds:Ref<Record<string, string|string[]>> = ref({
+  species: '',
+  background: '',
+  options: <string[]>[]
+})
+
+/**
+ * Adds a feature to the character, and removes any conflicting features and their effects
+ * 
+ * @param f key of the feature
+ */
+function addFeature (key: string) {
+  // Get the feature from the feature map
+  const feat = characterFeatures[key]
+  if (!feat) throw new Error('Unknown feature: ' + key)
+
+  // Add the feature to the character model
+  if (feat) {
+    if (feat.type === 'species') {
+      // Remove any conflicting features
+      popOptions(selectedFeatureds.value.species)
+      
+      // Add the new feature
+      selectedFeatureds.value.species = key
+      pushOptions(key)
+    }
+    else {
+      console.log('unknown feature type:', feat.type, 'key:', key)
+    }
+  }
+}
+
 export function useCharacter () {
   return {
     name,
     alignment,
-    // --
+    // -- dummy data above --
     professions: computed(() => [...(new Set(professions.value))].sort()),
     addProfession,
     removeProfession,
-    species,
     background,
     reset,
     addFeature,
@@ -183,12 +196,15 @@ export function useCharacter () {
     size,
     speed, 
     equipment,
-    options,
     abilities,
     proficiencies,
     proficiencyBonus: computed(() => 2),
     features: computed(() => [...features.value.keys()]),
     featureMap: computed(() => characterFeatures),
-    addOptionalFeature: (feat: string) => { console.log('Not implemented', feat) }
+    addOptionalFeature: (feat: string) => { console.log('Not implemented', feat) },
+    // -- refactored from here --
+    species: computed(() => selectedFeatureds.value.species),
+    options: computed(() => selectedFeatureds.value.options),
+    selectedFeatureds: computed(() => selectedFeatureds.value)
   }
 }
