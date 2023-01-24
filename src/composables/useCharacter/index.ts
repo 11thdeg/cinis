@@ -179,6 +179,13 @@ function addFeature (key: string) {
   }
 }
 
+function resetFeatureType (type: string) {
+  if (selectedFeatureds.value[type]) {
+    popOptions(selectedFeatureds.value[type])
+  }
+  selectedFeatureds.value[type] = ''
+}
+
 export function useCharacter () {
   return {
     name,
@@ -189,7 +196,6 @@ export function useCharacter () {
     removeProfession,
     background,
     reset,
-    addFeature,
     removeFeature,
     languages,
     description,
@@ -203,8 +209,10 @@ export function useCharacter () {
     featureMap: computed(() => characterFeatures),
     addOptionalFeature: (feat: string) => { console.log('Not implemented', feat) },
     // -- refactored from here --
-    species: computed(() => selectedFeatureds.value.species),
+    addFeature,
+    resetFeatureType,
     options: computed(() => selectedFeatureds.value.options),
-    selectedFeatureds: computed(() => selectedFeatureds.value)
+    selectedFeatureds: computed(() => selectedFeatureds.value),
+    species: computed(() => selectedFeatureds.value.species)
   }
 }

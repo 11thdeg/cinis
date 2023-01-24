@@ -29,7 +29,12 @@ import OptionsSection from '../components/OptionsSection/OptionsSection.vue'
       <cyan-toolbar>
         <cyan-spacer />
         <router-link to="/sheet">
-          <button>
+          <button class="secondary">
+            <cyan-icon
+              noun="page-character-sheet"
+              small
+              dark
+            />
             Näytä lomake
           </button>
         </router-link>

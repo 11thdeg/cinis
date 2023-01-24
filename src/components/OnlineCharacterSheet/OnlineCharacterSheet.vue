@@ -26,7 +26,7 @@ import QuickStatsBox from './QuickStatsBox.vue'
     />
     <AbilityAndSkillsCard
       ability="intelligence"
-      :skills="['Arcana', 'History', 'Investigation', 'Nature', 'Religion']"
+      :skills="['arcana', 'history', 'investigation', 'nature', 'religion']"
     />
     <AbilityAndSkillsCard
       ability="wisdom"
