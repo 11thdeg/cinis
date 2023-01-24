@@ -1,7 +1,7 @@
 {
   "name": "cinis",
   "private": false,
-  "version": "0.7.5",
+  "version": "0.8.2",
   "type": "module",
   "scripts": {
     "dev": "vite",
@@ -10,7 +10,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "@11thdeg/cyan": "0.32.1",
+    "@11thdeg/cyan": "0.33.6",
     "@types/marked": "^4.0.8",
     "marked": "^4.2.12",
     "vue": "^3.2.45",

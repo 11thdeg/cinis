@@ -3,14 +3,14 @@ import { CyanSelect } from '@11thdeg/cyan'
 import { computed, ref } from 'vue'
 import { useCharacter } from '../composables/useCharacter'
 import { characterFeatures } from '../composables/useCharacter/features'
-import FeatureInfoSection from './FeatureInfoSection/FeatureInfoSection.vue'
+// import FeatureInfoSection from './FeatureInfoSection/FeatureInfoSection.vue'
 
 const props = defineProps<{
   label: string
   featureType: string
 }>()
 
-const { addFeature } = useCharacter()
+const { addFeature, resetFeatureType } = useCharacter()
 
 const selectedFeature = ref('')
 const selectedVariant = ref('')
@@ -47,22 +47,20 @@ const variansAsOptions = computed(() => {
   return v
 })
 
-const featureToDisplay = computed(() => {
-  if (selectedVariant.value) return selectedVariant.value
-  return selectedFeature.value
-})
-
 function onFeatureSelect(e: Event) {
   const value = (e.target as CyanSelect).value
   selectedFeature.value = value
   selectedVariant.value = ''
-  addFeature(value)
+  
+  if (value) addFeature(value)
+  else resetFeatureType(props.featureType)
 }
 
 function onVariantSelect(e: Event) {
   const value = (e.target as CyanSelect).value
   selectedVariant.value = value
-  addFeature(value)
+  if (value) addFeature(value)
+  else addFeature(selectedFeature.value)
 }
 
 </script>
@@ -82,10 +80,6 @@ function onVariantSelect(e: Event) {
       label="Variantti"
       :options="variansAsOptions"
       @change="onVariantSelect" 
-    />
-    <FeatureInfoSection
-      v-if="featureToDisplay"
-      :feature-key="featureToDisplay"
     />
   </section>
 </template>
