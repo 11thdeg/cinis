@@ -30,7 +30,7 @@ import QuickStatsBox from './QuickStatsBox.vue'
     />
     <AbilityAndSkillsCard
       ability="wisdom"
-      :skills="['Animal Handling', 'Insight', 'Medicine', 'Perception', 'Survival']"
+      :skills="['animal handling', 'insight', 'medicine', 'perception', 'survival']"
     />
     <AbilityAndSkillsCard
       ability="charisma"
