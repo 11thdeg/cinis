@@ -96,13 +96,6 @@ const description = computed(() => {
   return [...getFeatureSet('description')]
 })
 
-const size = computed(() => {
-  return [...getFeatureSet('size')][0] || '-'
-})
-const speed = computed(() => {
-  return [...getFeatureSet('speed')][0] || '-'
-})
-
 const equipment = computed(() => {
   return [...getFeatureSet('equipment')]
 })
@@ -141,6 +134,33 @@ const alignment = ref('Kaoottisen hyvä')
 
 
 // --- refactored from here ---
+
+function getEffects(type: string) {
+  const effects = new Set<string>()
+  const keys = Object.keys(selectedFeatureds.value)
+  for (const key of keys) {
+    const feat = selectedFeatureds.value[key]
+    if (feat && typeof feat === 'string') {
+      const feature = characterFeatures[feat]
+      if (feature && feature.effects) {
+        for (const effect of feature.effects) {
+          if (effect[0] === type) {
+            effects.add(effect[1])
+          }
+        }
+      }
+    }
+  }
+  return [...effects]
+}
+
+const size = computed(() => {
+  return getEffects('size')[0] || '-'
+})
+
+const speed = computed(() => {
+  return getEffects('speed')[0] || '-'
+})
 
 /**
  * This is a collection of all the features that have been selected for the character
