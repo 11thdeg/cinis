@@ -34,7 +34,7 @@ import QuickStatsBox from './QuickStatsBox.vue'
     />
     <AbilityAndSkillsCard
       ability="charisma"
-      :skills="['Deception', 'Intimidation', 'Performance', 'Persuasion']"
+      :skills="['deception', 'intimidation', 'performance', 'persuasion']"
     />
     <LanguagesAndProdiciencies />
   </article>

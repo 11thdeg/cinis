@@ -11,7 +11,7 @@ const { size, speed } = useCharacter()
           {{ $t('stat.size') }}
         </p>
         <p class="TypeCaption">
-          {{ $t('stat.sizes.'+size) }}
+          {{ size === '-' ? '-' : $t('stat.sizes.'+size) }}
         </p>
       </div>
       <div class="statBox">
@@ -43,6 +43,6 @@ const { size, speed } = useCharacter()
   display: grid
 
 .three-columns
-  grid-template-columns: 1fr 1fr 1fr
+  grid-template-columns: 3fr 2fr 2fr
   gap: 4px
 </style>
