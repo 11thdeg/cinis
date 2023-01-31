@@ -1,6 +1,6 @@
 <script lang="ts" setup>
 import { useCharacter } from '../../composables/useCharacter'
-import OptionSelector from './OptionSelector.vue';
+import OptionSelector from './OptionSelector.vue'
 
 const { options } = useCharacter()
 </script>
