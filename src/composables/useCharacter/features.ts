@@ -21,3 +21,10 @@ export const characterFeatures:Record<string, CharacterFeature> = {
   ...speciesFeatures,
   ...backgroundFeatures
 }
+
+export function isVariant( feat: string ) {
+  return characterFeatures[feat]?.variantOf !== undefined
+}
+export function getParent( feat: string ) {
+  return characterFeatures[feat]?.variantOf
+}
