@@ -1,7 +1,7 @@
 <script lang="ts" setup>
 import { useCharacter } from '../../composables/useCharacter'
 
-const { species, background, proficiencies, languages, description, size, equipment, features, options, selectedFeatureds, speed } = useCharacter()
+const { species, background, proficiencies, languages, description, size, equipment, features, options, selectedFeatures, speed } = useCharacter()
 
 </script>
 <template>
@@ -20,7 +20,7 @@ const { species, background, proficiencies, languages, description, size, equipm
 
       <p><cyan-code>selectedFeatures</cyan-code></p>
       <p class="TypeBody2">
-        {{ selectedFeatureds }}
+        {{ selectedFeatures }}
       </p>
 
       <section class="dataTable">
