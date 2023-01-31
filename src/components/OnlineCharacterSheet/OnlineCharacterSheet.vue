@@ -4,6 +4,7 @@ import BasicInfoCard from './BasicInfoCard.vue'
 import DescriptionBox from './DescriptionBox.vue'
 import LanguagesAndProdiciencies from './LanguagesAndProdiciencies.vue'
 import QuickStatsBox from './QuickStatsBox.vue'
+import SpeciesBox from './SpeciesBox.vue'
 
 
 
@@ -40,6 +41,7 @@ import QuickStatsBox from './QuickStatsBox.vue'
   </article>
   <article class="small Column theme-ll flex flex-column">
     <QuickStatsBox />
+    <SpeciesBox />
   </article>
   <article class="small Column theme-ll flex flex-column">
     <DescriptionBox />

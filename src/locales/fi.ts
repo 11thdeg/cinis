@@ -19,6 +19,7 @@ export const fi = {
     constitution: 'Kestävyys',
     deception: 'Huijaaminen',
     dexterity: 'Ketteryys',
+    elf: 'Haltia',
     history: 'Historia',
     initiative: 'Aloite',
     insight: 'Oivallus',
