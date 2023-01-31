@@ -24,8 +24,8 @@ export const elfSpecies:Record<string, CharacterFeature> = {
     type: 'species',
     variantOf: 'elf',
     effects: [
-      ['size', 'Keskikokoinen'],
-      ['speed', '12 metriä'],
+      ['size', 'medium'],
+      ['speed', '12'],
       ['description', '*Pimeänäkö:* 24m'],
       ['description', '*Tarkat aistit:* pätevyys tarkkaavaisuustaitoon'],
       ['proficiency', 'perception'],
@@ -49,8 +49,8 @@ export const elfSpecies:Record<string, CharacterFeature> = {
     type: 'species',
     variantOf: 'elf',
     effects: [
-      ['size', 'Keskikokoinen'],
-      ['speed', '16 metriä'],
+      ['size', 'medium'],
+      ['speed', '16'],
       ['description', '*Pimeänäkö:* 24m'],
       ['description', '*Tarkat aistit:* pätevyys tarkkaavaisuustaitoon'],
       ['proficiency', 'perception'],
@@ -72,8 +72,8 @@ export const elfSpecies:Record<string, CharacterFeature> = {
     type: 'species',
     variantOf: 'elf',
     effects: [
-      ['size', 'Keskikokoinen'],
-      ['speed', '12 metriä'],
+      ['size', 'medium'],
+      ['speed', '12'],
       ['description', '*Ylivertainen pimeänäkö:* 48m'],
       ['description', '*Tarkat aistit:* pätevyys tarkkaavaisuustaitoon'],
       ['proficiency', 'perception'],

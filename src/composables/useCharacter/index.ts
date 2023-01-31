@@ -232,7 +232,7 @@ export function useCharacter () {
     addFeature,
     resetFeatureType,
     options: computed(() => selectedFeatureds.value.options),
-    selectedFeatureds: computed(() => selectedFeatureds.value),
+    selectedFeatures: computed(() => selectedFeatureds.value),
     species: computed(() => selectedFeatureds.value.species)
   }
 }

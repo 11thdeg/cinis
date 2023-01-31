@@ -1,8 +1,9 @@
 <script lang="ts" setup>
 import { CyanSelect } from '@11thdeg/cyan'
-import { computed, ref } from 'vue'
+import { computed, onMounted, ref } from 'vue'
 import { useCharacter } from '../composables/useCharacter'
 import { characterFeatures } from '../composables/useCharacter/features'
+import { isVariant, getParent } from '../composables/useCharacter/features'
 // import FeatureInfoSection from './FeatureInfoSection/FeatureInfoSection.vue'
 
 const props = defineProps<{
@@ -10,10 +11,23 @@ const props = defineProps<{
   featureType: string
 }>()
 
-const { addFeature, resetFeatureType } = useCharacter()
+const { addFeature, resetFeatureType, selectedFeatures } = useCharacter()
 
 const selectedFeature = ref('')
 const selectedVariant = ref('')
+
+onMounted(() => {
+  const selected = selectedFeatures.value[props.featureType]
+  if (selected && typeof selected === 'string') {
+    if (isVariant(selected)) {
+      selectedVariant.value = selected
+      selectedFeature.value = getParent(selected) || ''
+    }
+    else {
+      selectedFeature.value = selected
+    }
+  }
+})
 
 // Map the features of featureTyoe to <cyan-select options>
 const asOptions = computed(() => {
@@ -71,6 +85,7 @@ function onVariantSelect(e: Event) {
       {{ label }}
     </h4>
     <cyan-select
+      :value="selectedFeature"
       :label="label"
       :options="asOptions"
       @change="onFeatureSelect"
@@ -78,6 +93,7 @@ function onVariantSelect(e: Event) {
     <cyan-select
       v-if="hasVariants"
       label="Variantti"
+      :value="selectedVariant"
       :options="variansAsOptions"
       @change="onVariantSelect" 
     />

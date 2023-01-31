@@ -3,7 +3,7 @@ import AppInfoColumn from '../components/AppInfoColumn/AppInfoColumn.vue'
 import DebugColumn from '../components/DebugColumn/DebugColumn.vue'
 import FeatureSelector from '../components/FeatureSelector.vue'
 import IntroSection from '../components/IntroSection.vue'
-import OptionsSection from '../components/OptionsSection/OptionsSection.vue'
+// import OptionsSection from '../components/OptionsSection/OptionsSection.vue'
 </script>
 
 <template>
@@ -20,12 +20,12 @@ import OptionsSection from '../components/OptionsSection/OptionsSection.vue'
         label="Laji"
         feature-type="species"
       />
-      <FeatureSelector
+      <!--FeatureSelector
         label="Tausta"
         feature-type="background"
       />
       <OptionsSection />
-      <br>
+      <br-->
       <cyan-toolbar>
         <cyan-spacer />
         <router-link to="/sheet">

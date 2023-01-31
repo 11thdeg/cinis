@@ -1,7 +1,7 @@
 <script lang="ts" setup>
 import { useCharacter } from '../../composables/useCharacter'
 
-const { species, background, proficiencies, languages, description, size, equipment, features, options, selectedFeatureds } = useCharacter()
+const { species, background, proficiencies, languages, description, size, equipment, features, options, selectedFeatures, speed } = useCharacter()
 
 </script>
 <template>
@@ -20,7 +20,7 @@ const { species, background, proficiencies, languages, description, size, equipm
 
       <p><cyan-code>selectedFeatures</cyan-code></p>
       <p class="TypeBody2">
-        {{ selectedFeatureds }}
+        {{ selectedFeatures }}
       </p>
 
       <section class="dataTable">
@@ -30,6 +30,21 @@ const { species, background, proficiencies, languages, description, size, equipm
         <p class="TypeBody2">
           {{ species }}
         </p>
+        
+        <p class="TypeBody2">
+          <strong><cyan-code>size</cyan-code></strong>
+        </p>
+        <p class="TypeBody2">
+          {{ size }}
+        </p>
+        <p class="TypeBody2">
+          <cyan-code>speed</cyan-code>
+        </p>
+        <p class="TypeBody2">
+          {{ speed }}
+        </p>
+        <p>-</p>
+        <p>-</p>
         <p class="TypeBody2">
           <cyan-code>background</cyan-code>
         </p>
@@ -48,12 +63,7 @@ const { species, background, proficiencies, languages, description, size, equipm
         <p class="TypeBody2">
           {{ languages }}
         </p>
-        <p class="TypeBody2">
-          <strong><cyan-code>size</cyan-code></strong>
-        </p>
-        <p class="TypeBody2">
-          {{ size }}
-        </p>
+        
         <p class="TypeBody2">
           <strong><cyan-code>description</cyan-code></strong>
         </p>
