@@ -88,10 +88,6 @@ function popOptions (feat: string|string[]) {
   _options.value = _options.value.filter(o => o.parentFeature !== feat)
 }
 
-const languages = computed(() => {
-  return [...getFeatureSet('language')]
-})
-
 const description = computed(() => {
   return [...getFeatureSet('description')]
 })
@@ -160,6 +156,11 @@ const size = computed(() => {
 
 const speed = computed(() => {
   return getEffects('speed')[0] || '-'
+})
+
+const languages = computed(() => {
+  console.log('languages:', getEffects('language'))
+  return getEffects('language') || []
 })
 
 /**

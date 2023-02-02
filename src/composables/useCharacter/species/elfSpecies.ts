@@ -68,7 +68,7 @@ export const elfSpecies:Record<string, CharacterFeature> = {
     ]
   },
   dark_elf: {
-    description: 'Pimeähaltia',
+    description: 'Alishaltia',
     type: 'species',
     variantOf: 'elf',
     effects: [
@@ -81,9 +81,9 @@ export const elfSpecies:Record<string, CharacterFeature> = {
       ['immunity', 'Unta vastaan'],
       ['advantage', 'Lumoamista vastaan'],
       ['description', '*Transsi* Transsi. Haltioiden ei tarvitse nukkua. Haltiat harjoittavat meditaatiota puoliksi tietoisessa tilassa neljä tuntia päivässä. '],
-      ['language', 'Yleiskieli'],
-      ['language', 'Haltiakieli'],
-      ['language', 'Aliskieli']
+      ['language', 'common'],
+      ['language', 'elvish'],
+      ['language', 'undercommon'],
     ],
   }
 }

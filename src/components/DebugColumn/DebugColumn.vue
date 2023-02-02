@@ -43,8 +43,16 @@ const { species, background, proficiencies, languages, description, size, equipm
         <p class="TypeBody2">
           {{ speed }}
         </p>
-        <p>-</p>
-        <p>-</p>
+
+        <p class="TypeBody2">
+          <cyan-code>languages</cyan-code>
+        </p>
+        <p class="TypeBody2">
+          {{ languages }}
+        </p>
+        
+        <p>- REF</p>
+        <p>- ACT</p>
         <p class="TypeBody2">
           <cyan-code>background</cyan-code>
         </p>
@@ -57,12 +65,7 @@ const { species, background, proficiencies, languages, description, size, equipm
         <p class="TypeBody2">
           {{ proficiencies }}
         </p>
-        <p class="TypeBody2">
-          <cyan-code>languages</cyan-code>
-        </p>
-        <p class="TypeBody2">
-          {{ languages }}
-        </p>
+        
         
         <p class="TypeBody2">
           <strong><cyan-code>description</cyan-code></strong>

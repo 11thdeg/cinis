@@ -7,7 +7,7 @@ export const fi = {
     }
   },
   feature: {
-    elf: 'Haltia'
+    elf: 'Haltia',
   },
   stat: {
     acrobatics: 'Akrobatia',
@@ -17,6 +17,7 @@ export const fi = {
     athletics: 'Urheilu',
     charisma: 'Karisma',
     constitution: 'Kestävyys',
+    dark_elf: 'Alishaltia',
     deception: 'Huijaaminen',
     dexterity: 'Ketteryys',
     elf: 'Haltia',
