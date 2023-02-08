@@ -21,8 +21,7 @@ function reset () {
   professions.value = []
   selectedFeatureds.value = {
     species: '',
-    background: '',
-    options: <string[]>[]
+    background: ''
   }
 }
 
@@ -164,15 +163,9 @@ const languages = computed(() => {
 })
 
 /**
- * This is a collection of all the features that have been selected for the character
- * 
- * Key is the feature type, value is the feature key(s) as a string or an array of strings
+ * This is a map of the selected feature keys.
  */
-const selectedFeatureds:Ref<Record<string, string|string[]>> = ref({
-  species: '',
-  background: '',
-  options: <string[]>[]
-})
+const selectedFeatureds = ref(new Map<string, string>())
 
 /**
  * Adds a feature to the character, and removes any conflicting features and their effects
@@ -205,6 +198,30 @@ function resetFeatureType (type: string) {
     popOptions(selectedFeatureds.value[type])
   }
   selectedFeatureds.value[type] = ''
+}
+
+type CharacterOption = {
+  key: string,
+  parentFeature: string,
+  value?: string
+}
+
+const options = computed(() => {
+  const opts: CharacterOption[] = []
+  for (const selectedKey of Object.keys(selectedFeatureds.value)) {
+    // Get the feature from the feature map
+    const feat = characterFeatures[selectedFeatureds.value[selectedKey] as string]
+    if (feat && typeof feat === 'string') {
+      const feature = characterFeatures[feat]
+      if (feature && feature.options) {
+        feature.options.forEach(o => {
+          const op = speciesOptions[o]
+          op.parentFeature = feat
+          opts.push(op)
+        })
+      }
+    }
+  }
 }
 
 export function useCharacter () {

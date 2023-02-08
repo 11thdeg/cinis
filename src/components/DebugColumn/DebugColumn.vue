@@ -50,6 +50,13 @@ const { species, background, proficiencies, languages, description, size, equipm
         <p class="TypeBody2">
           {{ languages }}
         </p>
+
+        <p class="TypeBody2">
+          <cyan-code>options</cyan-code>
+        </p>
+        <p class="TypeBody2">
+          {{ options }}
+        </p>
         
         <p>- REF</p>
         <p>- ACT</p>
