@@ -11,13 +11,13 @@ const props = defineProps<{
   featureType: string
 }>()
 
-const { addFeature, resetFeatureType, selectedFeatures } = useCharacter()
+const { setFeature, getFeature } = useCharacter()
 
 const selectedFeature = ref('')
 const selectedVariant = ref('')
 
 onMounted(() => {
-  const selected = selectedFeatures.value[props.featureType]
+  const selected = getFeature(props.featureType)
   if (selected && typeof selected === 'string') {
     if (isVariant(selected)) {
       selectedVariant.value = selected
@@ -66,15 +66,15 @@ function onFeatureSelect(e: Event) {
   selectedFeature.value = value
   selectedVariant.value = ''
   
-  if (value) addFeature(value)
-  else resetFeatureType(props.featureType)
+  if (value) setFeature(props.featureType, value)
+  else setFeature(props.featureType)
 }
 
 function onVariantSelect(e: Event) {
   const value = (e.target as CyanSelect).value
   selectedVariant.value = value
-  if (value) addFeature(value)
-  else addFeature(selectedFeature.value)
+  if (value) setFeature(props.featureType, value)
+  else setFeature(props.featureType, selectedFeature.value)
 }
 
 </script>

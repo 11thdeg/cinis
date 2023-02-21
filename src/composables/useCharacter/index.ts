@@ -1,4 +1,26 @@
-import { computed, Ref, ref } from 'vue'
+import { computed, ref } from 'vue'
+import { logDebug } from '../../utils/logHelpers'
+
+const _selectedFeatures = ref(new Map<string, string>())
+
+function getFeature(type: string) {
+  return _selectedFeatures.value.get(type)
+}
+
+function setFeature(type: string, key?: string) {
+  logDebug('setFeature', type, key)
+  _selectedFeatures.value.set(type, key || '')
+}
+
+export function useCharacter () {
+  return {
+    getFeature, // (type: string) => _selectedFeatures.value.get(type),
+    setFeature, // (type: string, key: string) => _selectedFeatures.value.set(type, key),
+    selectedFeatures: computed(() => [..._selectedFeatures.value.values()]),
+  }
+}
+
+/* import { computed, Ref, ref } from 'vue'
 import { backgrounds } from './backgrounds'
 import { characterFeatures, option } from './features'
 import { speciesOptions } from './species'
@@ -6,7 +28,7 @@ import { speciesOptions } from './species'
 const _background = ref('')
 const professions:Ref<string[]> = ref([])
 
-/** A Profession can come from multiple sources */
+/** A Profession can come from multiple sources * /
 function addProfession (p: string) {
   professions.value = [...professions.value, p]
 }
@@ -164,14 +186,14 @@ const languages = computed(() => {
 
 /**
  * This is a map of the selected feature keys.
- */
+ * /
 const selectedFeatureds = ref(new Map<string, string>())
 
 /**
  * Adds a feature to the character, and removes any conflicting features and their effects
  * 
  * @param f key of the feature
- */
+ * /
 function addFeature (key: string) {
   // Get the feature from the feature map
   const feat = characterFeatures[key]
@@ -246,7 +268,6 @@ export function useCharacter () {
     features: computed(() => [...features.value.keys()]),
     featureMap: computed(() => characterFeatures),
     addOptionalFeature: (feat: string) => { console.log('Not implemented', feat) },
-    // -- refactored from here --
     addFeature,
     resetFeatureType,
     options: computed(() => selectedFeatureds.value.options),
@@ -254,3 +275,4 @@ export function useCharacter () {
     species: computed(() => selectedFeatureds.value.species)
   }
 }
+*/
