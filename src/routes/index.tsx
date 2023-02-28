@@ -7,6 +7,7 @@ export default function Home() {
       <Title>Hello World</Title>
       <h1>Hello world!</h1>
       <Counter />
+      <cyan-button prop:noun="ll" prop:label="Hahmokone"></cyan-button>
       <p>
         Visit{" "}
         <a href="https://start.solidjs.com" target="_blank">

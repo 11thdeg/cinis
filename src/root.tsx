@@ -41,7 +41,7 @@ export default function Root() {
       </Head>
       <Body class="cyan cyan--themed cyan--mode--light">
         <cyan-navigation-rail>
-          <cyan-navigation-button noun="ll" label="Hahmokone"></cyan-navigation-button>
+          <cyan-navigation-button prop:noun="ll" prop:label="Hahmokone"></cyan-navigation-button>
         </cyan-navigation-rail>
         <Suspense>
           <ErrorBoundary>
